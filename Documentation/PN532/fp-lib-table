@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "Orb_footprints")(type "KiCad")(uri "C:/Users/alessandro/Documents/KiCad/8.0/projects/salp_library/salp_library/Footprints/Orb_footprints.pretty")(options "")(descr ""))
+)

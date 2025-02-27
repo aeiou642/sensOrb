@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\PN532_NFC_elechouse (1)",
+    "\\PN532_NFC_elechouse (1)\\nfc_moudle_v1.1",
+    "\\PN532_NFC_elechouse (1)\\nfc_moudle_v1.1\\NFC",
+    "\\PN532_NFC_elechouse (1)\\nfc_moudle_v1.1\\NFC\\example",
+    "\\PN532_NFC_elechouse (1)\\nfc_moudle_v1.1\\NFC\\example\\nfc_p2p_initiator",
+    "\\PN532_NFC_elechouse (1)\\nfc_moudle_v1.1\\NFC\\example\\nfc_p2p_target"
+  ],
+  "SelectedNode": "\\PN532_NFC_elechouse (1)\\nfc_moudle_v1.1\\NFC\\example\\nfc_p2p_initiator\\nfc.cpp",
+  "PreviewInSolutionExplorer": false
+}

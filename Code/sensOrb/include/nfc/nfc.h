@@ -4,7 +4,8 @@
 /*
     Developed as part of a replacement/learning process for the PN532 I2C drivers.
     
-    V0.1 - Added basic comments and explanation regarding
+    V0.1.1 - Added basic comments and explanation regarding standard information frame
+    V0.1.2 - Added basic member functions, no functionality yet
 */
 
 #ifndef NFC_H
@@ -40,41 +41,44 @@ with macros.
 ////////////////////////////////////////////////////////////////////////////
 /*
 quick notes:
- - wakeup can be done with GPIO R/W (0x06 & 0x08)
+ - wakeup can be done with GPIO R/W (0x06 & 0x08) and/or on IRQ, which is also a GPIO pin
+ - unless security is a concern, SAM related commands can be ignored
+    - might be useful in the future, however
+ -
 */
 // PN532 Commands
-#define PN532_COMMAND_DIAGNOSE              (0x00) // Diagnose takes NumTst (1 byte) & InParam for some tests (7.2.1, pg 69 (nice))
-#define PN532_COMMAND_GETFIRMWAREVERSION    (0x02) // Returns firmware in format IC - VER - REV - SUPPORT (7.2.3)
-#define PN532_COMMAND_GETGENERALSTATUS      (0x04) // Lots of info. Check 7.2.3, lots of goodies for testing
-#define PN532_COMMAND_READREGISTER          (0x06) // 7.2.4 
-#define PN532_COMMAND_WRITEREGISTER         (0x08) // 7.2.5 
-#define PN532_COMMAND_READGPIO              (0x0C) // 7.2.6
-#define PN532_COMMAND_WRITEGPIO             (0x0E) // 7.2.7
-#define PN532_COMMAND_SETSERIALBAUDRATE     (0x10) // 7.2.8, unused
-#define PN532_COMMAND_SETPARAMETERS         (0x12) // 7.2.9, bit 3 must be 0
-#define PN532_COMMAND_SAMCONFIGURATION      (0x14)
-#define PN532_COMMAND_POWERDOWN             (0x16)
-#define PN532_COMMAND_RFCONFIGURATION       (0x32)
-#define PN532_COMMAND_RFREGULATIONTEST      (0x58)
-#define PN532_COMMAND_INJUMPFORDEP          (0x56)
-#define PN532_COMMAND_INJUMPFORPSL          (0x46)
-#define PN532_COMMAND_INLISTPASSIVETARGET   (0x4A)
-#define PN532_COMMAND_INATR                 (0x50)
-#define PN532_COMMAND_INPSL                 (0x4E)
-#define PN532_COMMAND_INDATAEXCHANGE        (0x40)
-#define PN532_COMMAND_INCOMMUNICATETHRU     (0x42)
-#define PN532_COMMAND_INDESELECT            (0x44)
-#define PN532_COMMAND_INRELEASE             (0x52)
-#define PN532_COMMAND_INSELECT              (0x54)
-#define PN532_COMMAND_INAUTOPOLL            (0x60)
-#define PN532_COMMAND_TGINITASTARGET        (0x8C)
-#define PN532_COMMAND_TGSETGENERALBYTES     (0x92)
-#define PN532_COMMAND_TGGETDATA             (0x86)
-#define PN532_COMMAND_TGSETDATA             (0x8E)
-#define PN532_COMMAND_TGSETMETADATA         (0x94)
-#define PN532_COMMAND_TGGETINITIATORCOMMAND (0x88)
-#define PN532_COMMAND_TGRESPONSETOINITIATOR (0x90)
-#define PN532_COMMAND_TGGETTARGETSTATUS     (0x8A)
+#define PN532_CMD_DIAGNOSE              (0x00) // Diagnose takes NumTst (1 byte) & InParam for some tests (7.2.1, pg 69 (nice))
+#define PN532_CMD_GETFIRMWAREVERSION    (0x02) // Returns firmware in format IC - VER - REV - SUPPORT (7.2.3)
+#define PN532_CMD_GETGENERALSTATUS      (0x04) // Lots of info. Check 7.2.3, lots of goodies for testing
+#define PN532_CMD_READREGISTER          (0x06) // 7.2.4 
+#define PN532_CMD_WRITEREGISTER         (0x08) // 7.2.5 
+#define PN532_CMD_READGPIO              (0x0C) // 7.2.6
+#define PN532_CMD_WRITEGPIO             (0x0E) // 7.2.7
+#define PN532_CMD_SETSERIALBAUDRATE     (0x10) // ! - 7.2.8,  unused
+#define PN532_CMD_SETPARAMETERS         (0x12) // 7.2.9, bit 3 must be 0, look into DID
+#define PN532_CMD_SAMCONFIGURATION      (0x14) // ! - 7.2.10, unused, 0x01 default
+#define PN532_CMD_POWERDOWN             (0x16)
+#define PN532_CMD_RFCONFIGURATION       (0x32)
+#define PN532_CMD_RFREGULATIONTEST      (0x58)
+#define PN532_CMD_INJUMPFORDEP          (0x56)
+#define PN532_CMD_INJUMPFORPSL          (0x46)
+#define PN532_CMD_INLISTPASSIVETARGET   (0x4A)
+#define PN532_CMD_INATR                 (0x50)
+#define PN532_CMD_INPSL                 (0x4E)
+#define PN532_CMD_INDATAEXCHANGE        (0x40)
+#define PN532_CMD_INCOMMUNICATETHRU     (0x42)
+#define PN532_CMD_INDESELECT            (0x44)
+#define PN532_CMD_INRELEASE             (0x52)
+#define PN532_CMD_INSELECT              (0x54)
+#define PN532_CMD_INAUTOPOLL            (0x60)
+#define PN532_CMD_TGINITASTARGET        (0x8C)
+#define PN532_CMD_TGSETGENERALBYTES     (0x92)
+#define PN532_CMD_TGGETDATA             (0x86)
+#define PN532_CMD_TGSETDATA             (0x8E)
+#define PN532_CMD_TGSETMETADATA         (0x94)
+#define PN532_CMD_TGGETINITIATORCOMMAND (0x88)
+#define PN532_CMD_TGRESPONSETOINITIATOR (0x90)
+#define PN532_CMD_TGGETTARGETSTATUS     (0x8A)
 
 #define PN532_WAKEUP                        (0x55)
 
@@ -98,13 +102,18 @@ todo:
  - function for constructing the standard information frame
     - data frame function to construct any given data to byte format
         - this probably means setting up a void pointer and checking data types
+        - or, probably implementing it with Wire
+ - multiple device chatter; send mask of 0x02 (bit 1) to 0x12 to specify DID usage
+        - then, assign IDs to each module
     - 
  - 
 */
 class PN532 {
     public:
         PN532(uint8_t IRQ_, uint8_t RST_, TwoWire *wire = &Wire); 
-        bool begin();
+        // if interfacting with anything in C, would probably set these to 
+        // void params for best practice. however, i don't really care atm
+        bool begin(); 
         void reset();
         void wakeup();
     private:

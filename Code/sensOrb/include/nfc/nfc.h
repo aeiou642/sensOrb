@@ -14,6 +14,8 @@
 #include <avr/pgmspace.h>
 #include <Wire.h>
 
+typedef unsigned char uint8_t;
+
 // Uncomment these to enable debugging features
 
 //#define PN532DEBUG
@@ -105,7 +107,7 @@ todo:
         - or, probably implementing it with Wire
  - multiple device chatter; send mask of 0x02 (bit 1) to 0x12 to specify DID usage
         - then, assign IDs to each module
-    - 
+ - extended frame builder - given a l
  - 
 */
 class PN532 {
@@ -117,8 +119,7 @@ class PN532 {
         void reset();
         void wakeup();
     private:
-        int8_t IRQ_ = -1;
-        int8_t RST_ = -1;
+        int8_t IRQ = -1;
+        int8_t RST = -1;
 
-
-}
+};

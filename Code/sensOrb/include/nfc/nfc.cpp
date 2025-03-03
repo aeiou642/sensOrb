@@ -9,8 +9,12 @@ void PN532::wakeup(){
     Wire.beginTransmission(PN532_I2C_ADDRESS);
     Wire.write(0x00); // write dummy frame
     Wire.endTransmission();
-    // NOTE: probably needs to be changed, adjusted on t_osc_start for when
-    // PN532 releases SCL
+    /*NOTE: probably needs to be changed, adjusted on t_osc_start for when
+    PN532 releases SCL. This value can be measured by checking how long
+    SCL is held low after the wakeup command is sent
+
+    Could optionally read SCL until it goes high
+    */
     delay(2); 
     Wire.requestFrom(PN532_I2C_ADDRESS, 1);
     if(Wire.available()){

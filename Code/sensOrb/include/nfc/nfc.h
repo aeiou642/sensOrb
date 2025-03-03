@@ -14,12 +14,19 @@
 #include <avr/pgmspace.h>
 #include <Wire.h>
 
-typedef unsigned char uint8_t;
-
 // Uncomment these to enable debugging features
 
 //#define PN532DEBUG
 //#define PN532_P2P_DEBUG
+
+
+// lots of code has infinite timeouts; some dont. for redundancy, here it is
+#define PN532_TIMEOUT 1000
+
+// packet buffer size for sending/reading
+#define PN532_PACKBUFFSZIE 80
+
+
 
 /*
 As per 6.2.1.1, an information frame (IF) is used to convey birectional communication
@@ -112,14 +119,17 @@ todo:
 */
 class PN532 {
     public:
-        PN532(uint8_t IRQ_, uint8_t RST_, TwoWire *wire = &Wire); 
-        // if interfacting with anything in C, would probably set these to 
-        // void params for best practice. however, i don't really care atm
-        bool begin(); 
-        void reset();
+        PN532(uint8_t IRQ_, uint8_t RST_, TwoWire &Wire);
+        void begin(); 
         void wakeup();
+    protected:
+        bool PN532Status(byte Status);
+        bool CheckAck(byte *cmd, byte cmdlen);
+        byte PN532_RD(byte *buff, byte len);
+        bool PN532_RD_PACKET(byte *buff, byte len);
+        bool PN532_WR_CMD(byte *cmd, byte len);
     private:
+        TwoWire* WirePN532;
         int8_t IRQ = -1;
         int8_t RST = -1;
-
 };

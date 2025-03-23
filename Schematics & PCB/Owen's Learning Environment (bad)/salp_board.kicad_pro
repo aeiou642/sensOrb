@@ -458,9 +458,7 @@
       "version": 3
     },
     "net_colors": null,
-    "netclass_assignments": {
-      "/U2_28": "Default"
-    },
+    "netclass_assignments": null,
     "netclass_patterns": []
   },
   "pcbnew": {
@@ -582,7 +580,7 @@
       "Root"
     ],
     [
-      "bf38d75d-22c2-43a5-8427-2e6a9d22af26",
+      "eaf34068-62b4-45a7-83ec-0c5ec9024fbf",
       "PN532"
     ]
   ],

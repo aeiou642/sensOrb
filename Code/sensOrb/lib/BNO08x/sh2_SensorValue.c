@@ -16,14 +16,14 @@
  */
 
 /*
- * BNO08x Sensor Event decoding
+ * BNO080 Sensor Event decoding
  */
 
 #include "sh2_SensorValue.h"
 #include "sh2_err.h"
 #include "sh2_util.h"
 
-#define SCALE_Q(n) (1.0f / (1 << n))
+#define SCALE_Q(n) (1.0f / ((uint32_t)1 << (n)))
 
 const float scaleRadToDeg = 180.0 / 3.14159265358;
 

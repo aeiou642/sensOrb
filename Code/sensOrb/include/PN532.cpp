@@ -69,46 +69,6 @@ void PN532::InitI2C(byte u8_Reset)
 }
 #endif
 
-/**************************************************************************
-    Initializes for software SPI usage.
-    param  clk       SPI clock pin (SCK)
-    param  miso      SPI MISO pin
-    param  mosi      SPI MOSI pin
-    param  sel       SPI chip select pin (CS/SSEL)
-    param  reset     Location of the RSTPD_N pin
-**************************************************************************/
-#if USE_SOFTWARE_SPI
-void PN532::InitSoftwareSPI(byte u8_Clk, byte u8_Miso, byte u8_Mosi, byte u8_Sel, byte u8_Reset)
-{
-    mu8_ClkPin = u8_Clk;
-    mu8_MisoPin = u8_Miso;
-    mu8_MosiPin = u8_Mosi;
-    mu8_SselPin = u8_Sel;
-    mu8_ResetPin = u8_Reset;
-
-    Utils::SetPinMode(mu8_ResetPin, OUTPUT);
-    Utils::SetPinMode(mu8_SselPin, OUTPUT);
-    Utils::SetPinMode(mu8_ClkPin, OUTPUT);
-    Utils::SetPinMode(mu8_MosiPin, OUTPUT);
-    Utils::SetPinMode(mu8_MisoPin, INPUT);
-}
-#endif
-
-/**************************************************************************
-    Initializes for hardware SPI uage.
-    param  sel       SPI chip select pin (CS/SSEL)
-    param  reset     Location of the RSTPD_N pin
-**************************************************************************/
-#if USE_HARDWARE_SPI
-void PN532::InitHardwareSPI(byte u8_Sel, byte u8_Reset)
-{
-    mu8_SselPin = u8_Sel;
-    mu8_ResetPin = u8_Reset;
-
-    Utils::SetPinMode(mu8_ResetPin, OUTPUT);
-    Utils::SetPinMode(mu8_SselPin, OUTPUT);
-}
-#endif
 
 /**************************************************************************
     Reset the PN532, wake up and start communication
@@ -124,25 +84,7 @@ void PN532::begin()
     Utils::DelayMilli(400);
     Utils::WritePin(mu8_ResetPin, HIGH);
     Utils::DelayMilli(10); // Small delay required before taking other actions after reset. See datasheet section 12.23, page 209.
-
-#if (USE_HARDWARE_SPI || USE_SOFTWARE_SPI)
-    {
-#if USE_HARDWARE_SPI
-        SpiClass::Begin(PN532_HARD_SPI_CLOCK);
-#endif
-
-        // Wake up the PN532 (chapter 7.2.11) -> send a sequence of 0x55 (dummy bytes)
-        byte u8_Buffer[20];
-        memset(u8_Buffer, PN532_WAKEUP, sizeof(u8_Buffer));
-        SendPacket(u8_Buffer, sizeof(u8_Buffer));
-
-        if (mu8_DebugLevel > 1)
-        {
-            Utils::Print("Send WakeUp packet: ");
-            Utils::PrintHexBuf(u8_Buffer, sizeof(u8_Buffer), LF);
-        }
-    }
-#elif USE_HARDWARE_I2C
+#if USE_HARDWARE_I2C
     {
         I2cClass::Begin();
     }

@@ -578,10 +578,6 @@
     [
       "e0a970b7-79f4-4ba4-abad-3417b959d097",
       "Root"
-    ],
-    [
-      "eaf34068-62b4-45a7-83ec-0c5ec9024fbf",
-      "PN532"
     ]
   ],
   "text_variables": {}

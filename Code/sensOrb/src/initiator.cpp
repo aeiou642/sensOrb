@@ -25,6 +25,10 @@ bool configSAM = false;
 void setup(){
   Serial.begin(115200);
   pn_tx.begin();
+<<<<<<< HEAD
+=======
+  Wire.setClock(400000);
+>>>>>>> 817e138a0db2410a293c0d598204cfabae639c73
 }
 void loop(){
   switch(currentState){
@@ -39,11 +43,20 @@ void loop(){
       }
       configSAM = true;
     }
+<<<<<<< HEAD
     }
     currentState = P2P_INJUMP;
     break;
     /*======================================================*/
     case P2P_INJUMP:
+=======
+    currentState = P2P_INJUMP;
+    break;
+  }
+    /*======================================================*/
+    case P2P_INJUMP:
+    {
+>>>>>>> 817e138a0db2410a293c0d598204cfabae639c73
       Serial.println("Sending InJumpForDEP (Passive @ 106 kbps)");
       {
       uint8_t inJumpForDEP[]={
@@ -66,6 +79,7 @@ void loop(){
     }
     currentState = P2P_EXCHANGE;
     break;
+<<<<<<< HEAD
     /*======================================================*/
     case P2P_EXCHANGE:
     
@@ -73,6 +87,57 @@ void loop(){
     /*======================================================*/
     case P2P_RELEASE:
     break;
+=======
+  }
+    /*======================================================*/
+    case P2P_EXCHANGE:
+    {
+    Serial.println("Beginning inDataExchange");
+      uint8_t inDataExchangeCmd[]{
+        PN532_COMMAND_INDATAEXCHANGE,
+        0x01, // Target number (only one target, so ID is 1)
+        // Test payload: Hello
+        0x48,0x65,0x6C,0x6F
+      };
+      if(!pn_tx.SendCommandCheckAck(inDataExchangeCmd,sizeof(inDataExchangeCmd))){
+        Serial.println("inDataExchange -- NACK -- Retrying...");
+        return;
+      }
+      uint8_t readBuffer[60];
+      int16_t length = pn_tx.ReadData(readBuffer,sizeof(readBuffer));
+      if(length > 0){
+        Serial.print("Recieved: ");
+        for(int i = 0; i < length; i++){
+          if(readBuffer[i] >= 32 && readBuffer[i] < 127){
+            Serial.write(readBuffer[i]);
+          } else {
+            Serial.print("0x");
+            Serial.print(readBuffer[i],HEX);
+            Serial.print(" ");
+          }
+        }
+        Serial.println();
+      }
+      Serial.println("inDataExchange successful");
+    
+    currentState = P2P_RELEASE;
+    break;
+    }
+    /*======================================================*/
+    case P2P_RELEASE:
+    {
+    uint8_t InRelease[]{
+      PN532_COMMAND_INRELEASE, 
+      0x01 // Target ID/number to release
+    };
+    if(!pn_tx.SendCommandCheckAck(InRelease,sizeof(InRelease))){
+      Serial.println("inRelease -- NACK -- Retrying...");
+      return;
+    }
+    Serial.println("Target released");
+    break;
+  }
+>>>>>>> 817e138a0db2410a293c0d598204cfabae639c73
     /*======================================================*/
     case P2P_DONE:
     break;

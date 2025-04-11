@@ -1,0 +1,94 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "C:/Users/owenp/OneDrive - Oregon State University/Research/Salp/sensOrb/Code/sensOrb/include",
+                "C:/Users/owenp/OneDrive - Oregon State University/Research/Salp/sensOrb/Code/sensOrb/src",
+                "C:/Users/owenp/OneDrive - Oregon State University/Research/Salp/sensOrb/Code/sensOrb/lib/PN532",
+                "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/Wire/src",
+                "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/SPI/src",
+                "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/cores/megatinycore/api/deprecated",
+                "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/cores/megatinycore",
+                "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/variants/txy6",
+                "C:/Users/owenp/OneDrive - Oregon State University/Research/Salp/sensOrb/Code/sensOrb/lib/BNO08x",
+                "C:/Users/owenp/OneDrive - Oregon State University/Research/Salp/sensOrb/Code/sensOrb/lib/BNO8x",
+                "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/Comparator/src",
+                "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/EEPROM/src",
+                "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/Event/src",
+                "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/Logic/src",
+                "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/Optiboot_flasher/src",
+                "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/SD/src",
+                "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/Servo/src",
+                "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/Servo_megaTinyCore/src",
+                "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/SoftwareSerial/src",
+                "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/USERSIG/src",
+                "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/megaTinyCore/src",
+                "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/tinyNeoPixel",
+                "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/tinyNeoPixel_Static",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "C:/Users/owenp/OneDrive - Oregon State University/Research/Salp/sensOrb/Code/sensOrb/include",
+                    "C:/Users/owenp/OneDrive - Oregon State University/Research/Salp/sensOrb/Code/sensOrb/src",
+                    "C:/Users/owenp/OneDrive - Oregon State University/Research/Salp/sensOrb/Code/sensOrb/lib/PN532",
+                    "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/Wire/src",
+                    "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/SPI/src",
+                    "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/cores/megatinycore/api/deprecated",
+                    "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/cores/megatinycore",
+                    "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/variants/txy6",
+                    "C:/Users/owenp/OneDrive - Oregon State University/Research/Salp/sensOrb/Code/sensOrb/lib/BNO08x",
+                    "C:/Users/owenp/OneDrive - Oregon State University/Research/Salp/sensOrb/Code/sensOrb/lib/BNO8x",
+                    "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/Comparator/src",
+                    "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/EEPROM/src",
+                    "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/Event/src",
+                    "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/Logic/src",
+                    "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/Optiboot_flasher/src",
+                    "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/SD/src",
+                    "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/Servo/src",
+                    "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/Servo_megaTinyCore/src",
+                    "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/SoftwareSerial/src",
+                    "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/USERSIG/src",
+                    "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/megaTinyCore/src",
+                    "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/tinyNeoPixel",
+                    "C:/Users/owenp/.platformio/packages/framework-arduino-megaavr-megatinycore/libraries/tinyNeoPixel_Static",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=60118",
+                "ARDUINO_attinyxy6",
+                "MILLIS_USE_TIMERB1",
+                "UARTBAUD5V",
+                "F_CPU=16000000L",
+                "ARDUINO_ARCH_MEGAAVR",
+                "ARDUINO=10808",
+                "CLOCK_SOURCE=0",
+                "MEGATINYCORE=\"2.6.7\"",
+                "MEGATINYCORE_MAJOR=2UL",
+                "MEGATINYCORE_MINOR=6UL",
+                "MEGATINYCORE_PATCH=7UL",
+                "MEGATINYCORE_RELEASED=1",
+                "CORE_ATTACH_ALL",
+                "TWI_MORS",
+                ""
+            ],
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++17",
+            "compilerPath": "C:/Users/owenp/.platformio/packages/toolchain-atmelavr/bin/avr-gcc.exe",
+            "compilerArgs": [
+                "-mmcu=attiny3226",
+                "-mrelax",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}

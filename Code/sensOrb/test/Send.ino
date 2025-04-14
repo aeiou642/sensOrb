@@ -1,6 +1,7 @@
 #include <Wire.h>
 #include <PN532_I2C.h>
 #include <PN532.h>
+#include "NdefMessage.h"
 #include <NfcAdapter.h>
 
 PN532_I2C pn532_i2c(Wire);

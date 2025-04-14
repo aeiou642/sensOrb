@@ -1,8 +1,12 @@
-- I'm programming with VSCode & PlatformIO (PIO). You could use the Arduino IDE, but the serial monitor kinda sucks and swapping between boards and ports isn't great. Future proofing stuff and myself by forcing myself to do it the correct way now.
+PlatformIO Notes:
+- Install PIO via. VSCode and follow standard installation instructions
+- In the platformio.ini file, change the following;
+- upload_port to whatever port the Serial to UART for the UPDI is connected to
+- monitor_port to whatever port the Serial to UART the actual serial monitor is connected to
 
-TODO: 
-- Write scripts for testing
-- Implement PN532 Drivers (the correct way)
-(?) - Implement FreeRTOS and scheduler
-(?) - Implement drivers for BMI270
-(?) - Add other stuff into this repo if it'll be used
+hopefully, in the new board design, Serial/UPDI will be a toggle DIP switch or something
+
+TODO BY 4/20/25:
+- change C7/C8 for proper matching with new potential antenna
+- reference PN532 RF application design guide for all total changes
+- build an actual layout for a board

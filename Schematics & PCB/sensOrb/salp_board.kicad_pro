@@ -482,7 +482,7 @@
     "last_paths": {
       "gencad": "",
       "idf": "",
-      "netlist": "",
+      "netlist": "./",
       "plot": "Output/",
       "pos_files": "",
       "specctra_dsn": "",

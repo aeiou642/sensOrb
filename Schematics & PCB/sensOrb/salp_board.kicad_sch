@@ -4,6 +4,10 @@
 	(generator_version "8.0")
 	(uuid "e0a970b7-79f4-4ba4-abad-3417b959d097")
 	(paper "A3")
+	(title_block
+		(date "2025-06-23")
+		(rev "2.0")
+	)
 	(lib_symbols
 		(symbol "Battery_Management:DW01A"
 			(exclude_from_sim no)

@@ -16994,6 +16994,54 @@
 			(justify left bottom mirror)
 		)
 	)
+	(gr_text "PC0"
+		(at 195 100.5 0)
+		(layer "F.SilkS")
+		(uuid "211a7c77-849d-4623-9759-c8e295a86d6a")
+		(effects
+			(font
+				(size 0.7 0.7)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "PB3"
+		(at 165.5 98 0)
+		(layer "F.SilkS")
+		(uuid "36983da1-0c44-4ad7-9778-6f4f84ce9699")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "PC3"
+		(at 195 93 0)
+		(layer "F.SilkS")
+		(uuid "388f950c-5350-489d-ba33-44a37540060f")
+		(effects
+			(font
+				(size 0.7 0.7)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "PA4"
+		(at 165.5 83 0)
+		(layer "F.SilkS")
+		(uuid "4fdb85bf-77e1-475f-81a3-6db4b2706498")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
 	(gr_text "PN532 ATTINY3226 \nNODE DEMO BOARD V2\n"
 		(at 182 61.5 0)
 		(layer "F.SilkS")
@@ -17007,6 +17055,126 @@
 			(justify bottom)
 		)
 	)
+	(gr_text "PA5\n"
+		(at 165.5 85 0)
+		(layer "F.SilkS")
+		(uuid "5dddb8fd-f409-47db-b4ef-ea722d907926")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "PB5"
+		(at 165.5 92.5 0)
+		(layer "F.SilkS")
+		(uuid "71e3c8b6-a7c6-4e74-b88b-2e8aa4f0ac02")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "PA2"
+		(at 195 85.5 0)
+		(layer "F.SilkS")
+		(uuid "7d16ac94-d806-40bf-8d94-5d3d315a781f")
+		(effects
+			(font
+				(size 0.7 0.7)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "PA0"
+		(at 195 90.5 0)
+		(layer "F.SilkS")
+		(uuid "825c1f89-f263-4450-b56b-bcf736ed29c1")
+		(effects
+			(font
+				(size 0.7 0.7)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "SCL"
+		(at 195 103 0)
+		(layer "F.SilkS")
+		(uuid "864b3c22-176b-4afb-b951-b62ecb4327b8")
+		(effects
+			(font
+				(size 0.7 0.7)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "PA1"
+		(at 195 88 0)
+		(layer "F.SilkS")
+		(uuid "88e87196-5148-47c2-beef-50dedee8fdb7")
+		(effects
+			(font
+				(size 0.7 0.7)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "PC1"
+		(at 195 98 0)
+		(layer "F.SilkS")
+		(uuid "893715ac-2a9b-47ee-b65c-7211b6b1c638")
+		(effects
+			(font
+				(size 0.7 0.7)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "PA3"
+		(at 195 83 0)
+		(layer "F.SilkS")
+		(uuid "898c9486-1969-402f-98a9-4f785e758049")
+		(effects
+			(font
+				(size 0.7 0.7)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "PA6"
+		(at 165.5 87.5 0)
+		(layer "F.SilkS")
+		(uuid "bebbf5a3-54c3-4054-b1b8-142a8a52bec3")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "PB2"
+		(at 165.5 100 0)
+		(layer "F.SilkS")
+		(uuid "c70d9778-d8f0-49f9-8a4c-c6e544c61d9e")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
 	(gr_text "LEFT-Monitor\nRIGHT-Program"
 		(at 182.88512 114.344463 0)
 		(layer "F.SilkS")
@@ -17016,6 +17184,54 @@
 				(size 0.9 0.9)
 				(thickness 0.225)
 				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "PC2"
+		(at 195 95.5 0)
+		(layer "F.SilkS")
+		(uuid "d65be1ad-fc48-43e8-9453-655cad5d41a6")
+		(effects
+			(font
+				(size 0.7 0.7)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "PB4\n"
+		(at 165.5 95.5 0)
+		(layer "F.SilkS")
+		(uuid "e079c262-22bf-4cf6-9176-b846394669c3")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "SDA"
+		(at 165.5 103 0)
+		(layer "F.SilkS")
+		(uuid "eb6ec11e-cb43-441f-917e-4070278e7a25")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "PA7"
+		(at 165.5 90 0)
+		(layer "F.SilkS")
+		(uuid "f2743278-a773-408d-8900-7ca65e8ecf5f")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
 			)
 			(justify left bottom)
 		)

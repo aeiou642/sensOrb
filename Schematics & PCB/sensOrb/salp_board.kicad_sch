@@ -8970,19 +8970,6 @@
 		(uuid a4c8c993-0151-47bd-98c3-31296803b2de)
 	)
 	(rectangle
-		(start 223.52 49.53)
-		(end 252.73 77.47)
-		(stroke
-			(width 0.508)
-			(type default)
-			(color 255 131 123 1)
-		)
-		(fill
-			(type none)
-		)
-		(uuid aefa06a7-5575-487f-8512-aaf8970f1c75)
-	)
-	(rectangle
 		(start 21.59 114.554)
 		(end 127.508 160.02)
 		(stroke

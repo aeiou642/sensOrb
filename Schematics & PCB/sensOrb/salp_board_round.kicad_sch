@@ -6377,6 +6377,12 @@
 		(uuid "16f70365-873c-4a68-882a-2b4d55bc84bd")
 	)
 	(junction
+		(at 45.72 171.45)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "177b555e-35f5-43c2-9f5d-70c472b9fb3d")
+	)
+	(junction
 		(at 227.33 152.4)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6407,6 +6413,12 @@
 		(uuid "2ece26b9-ddee-4caa-bd4e-a2fcdfc7a393")
 	)
 	(junction
+		(at 125.73 262.89)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "30f0c1f0-8c30-494e-9d3c-b3fe35924232")
+	)
+	(junction
 		(at 57.15 154.94)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6423,6 +6435,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3ed31804-3586-491e-a112-cc0e6f4a260e")
+	)
+	(junction
+		(at 26.67 171.45)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4358a0f8-bec2-45a0-8d6f-643dae6891be")
 	)
 	(junction
 		(at 57.15 124.46)
@@ -6549,6 +6567,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c23ecf5b-51e8-49a9-939f-178e0b5231cc")
+	)
+	(junction
+		(at 64.77 171.45)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "cb8d0dd6-0aeb-4191-9978-3c63216222a1")
 	)
 	(junction
 		(at 33.02 242.57)
@@ -7198,7 +7222,7 @@
 	)
 	(wire
 		(pts
-			(xy 26.67 170.18) (xy 26.67 175.26)
+			(xy 26.67 170.18) (xy 26.67 171.45)
 		)
 		(stroke
 			(width 0)
@@ -7838,6 +7862,16 @@
 	)
 	(wire
 		(pts
+			(xy 45.72 171.45) (xy 45.72 176.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7d1aea7c-8b30-4a24-b6a0-b35a92010016")
+	)
+	(wire
+		(pts
 			(xy 57.15 142.24) (xy 57.15 139.7)
 		)
 		(stroke
@@ -7988,7 +8022,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 170.18) (xy 45.72 176.53)
+			(xy 45.72 170.18) (xy 45.72 171.45)
 		)
 		(stroke
 			(width 0)
@@ -8045,6 +8079,16 @@
 			(type default)
 		)
 		(uuid "991fea7a-45ff-438a-a3ef-4c632620464a")
+	)
+	(wire
+		(pts
+			(xy 125.73 262.89) (xy 130.81 262.89)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9962f843-7ddc-4b25-baf7-a0317962bc5f")
 	)
 	(wire
 		(pts
@@ -8128,7 +8172,7 @@
 	)
 	(wire
 		(pts
-			(xy 119.38 262.89) (xy 130.81 262.89)
+			(xy 119.38 262.89) (xy 125.73 262.89)
 		)
 		(stroke
 			(width 0)
@@ -8195,6 +8239,16 @@
 			(type default)
 		)
 		(uuid "a671c873-1f8d-4476-926e-67e6717151ea")
+	)
+	(wire
+		(pts
+			(xy 26.67 171.45) (xy 45.72 171.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a7209416-9c23-4fe7-8bdd-b99778f1443e")
 	)
 	(wire
 		(pts
@@ -8325,6 +8379,16 @@
 			(type default)
 		)
 		(uuid "b2b5b16e-8477-41e2-86a4-5f0fdd78611c")
+	)
+	(wire
+		(pts
+			(xy 26.67 171.45) (xy 26.67 175.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b2ca8eb1-b774-4995-bb1b-ee60331628cf")
 	)
 	(wire
 		(pts
@@ -8528,7 +8592,7 @@
 	)
 	(wire
 		(pts
-			(xy 64.77 170.18) (xy 64.77 176.53)
+			(xy 64.77 170.18) (xy 64.77 171.45)
 		)
 		(stroke
 			(width 0)
@@ -8625,6 +8689,16 @@
 			(type default)
 		)
 		(uuid "d44aa962-13d2-466f-8e39-9653e8cd3fd3")
+	)
+	(wire
+		(pts
+			(xy 45.72 171.45) (xy 64.77 171.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d54a002c-dc43-483d-87ef-9322ab818fa4")
 	)
 	(wire
 		(pts
@@ -8785,6 +8859,16 @@
 			(type default)
 		)
 		(uuid "e35e86cd-3ff5-45e1-a91f-aa43b89abbf6")
+	)
+	(wire
+		(pts
+			(xy 64.77 171.45) (xy 64.77 176.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e44bcda8-8edf-4722-9342-326e199e504c")
 	)
 	(wire
 		(pts
@@ -9158,7 +9242,7 @@
 	)
 	(rectangle
 		(start 201.422 199.898)
-		(end 242.57 243.84)
+		(end 242.57 222.25)
 		(stroke
 			(width 0)
 			(type dash_dot_dot)
@@ -11181,8 +11265,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" ".1u"
-			(at 58.166 186.182 0)
+		(property "Value" "100nF"
+			(at 57.912 186.182 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11296,136 +11380,6 @@
 			(project "salp_board_round"
 				(path "/e225bae8-edfa-4156-b128-1693f60722d7"
 					(reference "C18")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 205.74 238.76 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "10e8712b-0429-4d8a-a231-806f81bf6cb8")
-		(property "Reference" "#PWR025"
-			(at 205.74 245.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 209.804 240.792 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 205.74 238.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 205.74 238.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 205.74 238.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a335a506-6efd-4e5f-875a-ac81cad5f7cc")
-		)
-		(instances
-			(project "salp_board_round"
-				(path "/e225bae8-edfa-4156-b128-1693f60722d7"
-					(reference "#PWR025")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 205.74 227.33 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "1adb4538-dafb-4faa-a5ad-44fd7861ef5f")
-		(property "Reference" "#PWR024"
-			(at 205.74 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 209.804 229.108 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 205.74 227.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 205.74 227.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 205.74 227.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ff2e8386-8a84-4905-a158-e35ef68698d8")
-		)
-		(instances
-			(project "salp_board_round"
-				(path "/e225bae8-edfa-4156-b128-1693f60722d7"
-					(reference "#PWR024")
 					(unit 1)
 				)
 			)
@@ -11908,7 +11862,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Horizontal"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
 			(at 132.08 180.34 0)
 			(effects
 				(font
@@ -12037,8 +11991,8 @@
 				)
 			)
 		)
-		(property "Value" "1.6K"
-			(at 88.9 149.606 90)
+		(property "Value" "2.7K"
+			(at 88.9 150.368 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12699,6 +12653,72 @@
 			(project "salp_board_round"
 				(path "/e225bae8-edfa-4156-b128-1693f60722d7"
 					(reference "Q1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 125.73 270.51 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "48a645af-2d74-4f8e-a198-c908404e7e33")
+		(property "Reference" "#PWR036"
+			(at 125.73 276.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 125.73 275.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 125.73 270.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 125.73 270.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 125.73 270.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "af9a2799-61ad-4a3c-a107-bcbf19fe294d")
+		)
+		(instances
+			(project "salp_board_round"
+				(path "/e225bae8-edfa-4156-b128-1693f60722d7"
+					(reference "#PWR036")
 					(unit 1)
 				)
 			)
@@ -13730,7 +13750,7 @@
 				)
 			)
 		)
-		(property "Value" "Conn_01x03"
+		(property "Value" "Antenna"
 			(at 25.4 133.35 0)
 			(effects
 				(font
@@ -13738,7 +13758,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Horizontal"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
 			(at 25.4 139.7 0)
 			(effects
 				(font
@@ -14298,7 +14318,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Horizontal"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
 			(at 165.1 180.34 0)
 			(effects
 				(font
@@ -14945,73 +14965,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:MountingHole_Pad")
-		(at 205.74 236.22 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "97a3e8d3-7857-415a-9696-1c010be1c40b")
-		(property "Reference" "H4"
-			(at 208.28 233.6799 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "MountingHole_Pad"
-			(at 208.28 236.2199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_Pad"
-			(at 205.74 236.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 205.74 236.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Mounting Hole with connection"
-			(at 205.74 236.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "2ae1678a-d2f8-412b-88b5-fdbf0f29c6a9")
-		)
-		(instances
-			(project "salp_board_round"
-				(path "/e225bae8-edfa-4156-b128-1693f60722d7"
-					(reference "H4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector:TestPoint")
 		(at 31.75 229.87 90)
 		(unit 1)
@@ -15392,73 +15345,6 @@
 			(project "salp_board_round"
 				(path "/e225bae8-edfa-4156-b128-1693f60722d7"
 					(reference "J3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Mechanical:MountingHole_Pad")
-		(at 205.74 224.79 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a2ba4885-ad09-4a94-bb7f-5d9128ea03d2")
-		(property "Reference" "H3"
-			(at 208.28 222.2499 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "MountingHole_Pad"
-			(at 208.28 224.7899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_Pad"
-			(at 205.74 224.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 205.74 224.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Mounting Hole with connection"
-			(at 205.74 224.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "4c565cbe-f971-45a0-adb6-b453be46bfd6")
-		)
-		(instances
-			(project "salp_board_round"
-				(path "/e225bae8-edfa-4156-b128-1693f60722d7"
-					(reference "H3")
 					(unit 1)
 				)
 			)
@@ -16769,7 +16655,7 @@
 			)
 		)
 		(property "Value" "100 nF"
-			(at 47.244 185.674 0)
+			(at 43.942 185.166 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17592,7 +17478,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10uF"
+		(property "Value" "4.7uF"
 			(at 49.784 185.42 0)
 			(effects
 				(font
@@ -18041,7 +17927,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Horizontal"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical"
 			(at 147.32 36.83 0)
 			(effects
 				(font
@@ -18644,6 +18530,75 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C")
+		(at 125.73 266.7 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "fe8a5411-5f68-4c46-b863-618f98ab1bc6")
+		(property "Reference" "C19"
+			(at 132.08 268.224 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 134.874 265.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+			(at 124.7648 262.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 125.73 266.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 125.73 266.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "8f6799b7-627f-4e72-96d4-5fd325268a0b")
+		)
+		(pin "1"
+			(uuid "4a66b0cb-7049-4c5e-bc8c-5e740143a283")
+		)
+		(instances
+			(project "salp_board_round"
+				(path "/e225bae8-edfa-4156-b128-1693f60722d7"
+					(reference "C19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 251.46 91.44 180)
 		(unit 1)
@@ -18726,7 +18681,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "4.7u"
+		(property "Value" "4.7uF"
 			(at 69.088 185.928 0)
 			(effects
 				(font

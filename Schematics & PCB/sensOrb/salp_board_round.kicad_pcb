@@ -893,7 +893,7 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "03aef5e8-112f-48ea-9bc3-d9613be546eb")
-		(at 115.0375 63.66)
+		(at 110.9 63.76)
 		(descr "Through hole straight pin header, 1x06, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x06 2.54mm single row")
 		(property "Reference" "J6"
@@ -1630,11 +1630,11 @@
 	(footprint "MountingHole:MountingHole_2.2mm_M2_Pad"
 		(layer "F.Cu")
 		(uuid "0d522e83-452d-42ac-b371-8cc85ad357a5")
-		(at 109.7375 70.26)
+		(at 170 64.9)
 		(descr "Mounting Hole 2.2mm, M2")
 		(tags "mounting hole 2.2mm m2")
 		(property "Reference" "H2"
-			(at 0 -3.2 0)
+			(at 3.8 -1.4 0)
 			(layer "F.SilkS")
 			(uuid "6a21f185-7336-4fb8-b53d-13a733d627e9")
 			(effects
@@ -1645,7 +1645,7 @@
 			)
 		)
 		(property "Value" "MountingHole_Pad"
-			(at 0 3.2 0)
+			(at 0 -3.9 0)
 			(layer "F.Fab")
 			(uuid "e4a09a8d-b190-4784-a71f-8ad4c9bd0e87")
 			(effects
@@ -14104,7 +14104,7 @@
 	(footprint "MountingHole:MountingHole_2.2mm_M2_Pad"
 		(layer "F.Cu")
 		(uuid "dee0c52a-99d4-45a9-a364-ef553f9efaba")
-		(at 109.7375 64.31)
+		(at 170 115.1)
 		(descr "Mounting Hole 2.2mm, M2")
 		(tags "mounting hole 2.2mm m2")
 		(property "Reference" "H1"

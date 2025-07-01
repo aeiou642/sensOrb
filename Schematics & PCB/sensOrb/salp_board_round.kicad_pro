@@ -535,7 +535,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "salp_board.kicad_pro",
+    "filename": "salp_board_round.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -688,7 +688,7 @@
   },
   "sheets": [
     [
-      "e0a970b7-79f4-4ba4-abad-3417b959d097",
+      "e225bae8-edfa-4156-b128-1693f60722d7",
       "Root"
     ]
   ],

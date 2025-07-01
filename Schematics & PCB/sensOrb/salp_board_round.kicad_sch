@@ -7488,6 +7488,16 @@
 	)
 	(wire
 		(pts
+			(xy 119.38 250.19) (xy 133.35 250.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "55b79c28-731f-472b-9a61-1722efeb36d6")
+	)
+	(wire
+		(pts
 			(xy 219.71 46.99) (xy 223.52 46.99)
 		)
 		(stroke
@@ -7655,16 +7665,6 @@
 			(type default)
 		)
 		(uuid "69b58848-fa47-4d07-a4a3-52eaa3a22940")
-	)
-	(wire
-		(pts
-			(xy 133.35 250.19) (xy 119.38 250.19)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6a67d6e3-4e8a-4d6f-867d-0fceca8100e4")
 	)
 	(wire
 		(pts
@@ -9425,7 +9425,7 @@
 		)
 		(uuid "bf1f3b97-4630-4d4b-98b7-0f1c4367d822")
 	)
-	(text "VRM (kind of not nessacary)"
+	(text "3.3V LDO VRM"
 		(exclude_from_sim no)
 		(at 219.202 117.602 0)
 		(effects
@@ -9598,7 +9598,7 @@
 		(uuid "10dc8244-03eb-478e-9770-7692d03cd83a")
 	)
 	(label "PA4"
-		(at 130.81 252.73 0)
+		(at 132.08 252.73 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9664,7 +9664,7 @@
 		(uuid "21c775ee-3869-425b-b0f8-2df769c448e1")
 	)
 	(label "PA2"
-		(at 130.81 247.65 0)
+		(at 132.08 247.65 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9850,6 +9850,17 @@
 		)
 		(uuid "4d9dd236-58c3-45d6-ba11-8d74f62d4976")
 	)
+	(label "PA1"
+		(at 119.38 252.73 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4e63f51d-7eb6-45dc-9c5d-1709d0222a45")
+	)
 	(label "PA5"
 		(at 64.77 62.23 0)
 		(fields_autoplaced yes)
@@ -9917,7 +9928,7 @@
 		(uuid "556b72b8-5cb1-4dce-b6b6-2ee25d00675b")
 	)
 	(label "PA1"
-		(at 130.81 250.19 0)
+		(at 132.08 250.19 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9950,7 +9961,7 @@
 		(uuid "585d9e3f-2b13-4203-8518-16e708a3b1cd")
 	)
 	(label "PA3"
-		(at 130.81 245.11 0)
+		(at 132.08 245.11 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10091,6 +10102,17 @@
 			(justify left bottom)
 		)
 		(uuid "7db9d190-9671-4eca-a72d-c5c7cbfe057e")
+	)
+	(label "M_SDA"
+		(at 124.46 250.19 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7f5db88b-31c2-4a78-a59a-895cecd4fd82")
 	)
 	(label "PA3"
 		(at 147.32 90.17 0)
@@ -10257,6 +10279,17 @@
 		)
 		(uuid "9fc40c4b-95ec-4e45-9ecb-5cb5431ebe8c")
 	)
+	(label "M_SCL"
+		(at 124.46 252.73 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a7b66800-faf5-429b-8e5e-e57cbc83a742")
+	)
 	(label "PA1"
 		(at 147.32 77.47 0)
 		(fields_autoplaced yes)
@@ -10278,6 +10311,17 @@
 			(justify left bottom)
 		)
 		(uuid "b5148462-2d55-4d4c-bfdf-54d5321ef2f2")
+	)
+	(label "PA2"
+		(at 119.38 250.19 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b9ee137c-6a78-47fa-9e1d-9135c5fdc660")
 	)
 	(label "PB3"
 		(at 64.77 80.01 0)

@@ -2173,7 +2173,7 @@
 	(footprint "PN532:QFN40G-0.5-6X6MM"
 		(layer "F.Cu")
 		(uuid "206f037c-f70f-4454-bbb4-7eacea5d3fd0")
-		(at 130.7115 89.265)
+		(at 115.5 91.3)
 		(property "Reference" "U1"
 			(at 0.318118 -4.262798 0)
 			(layer "F.SilkS")

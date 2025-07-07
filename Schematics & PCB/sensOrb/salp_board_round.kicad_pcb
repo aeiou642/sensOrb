@@ -5197,7 +5197,7 @@
 		(descr "Through hole straight pin header, 1x03, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x03 2.54mm single row")
 		(property "Reference" "SEL0"
-			(at 1.5 -2.475 0)
+			(at 0.1 -2.475 0)
 			(layer "F.SilkS")
 			(uuid "db60a58f-b34d-42dd-971e-565c02d7832f")
 			(effects
@@ -6603,7 +6603,7 @@
 	(footprint "Diode_SMD:D_1206_3216Metric_Pad1.42x1.75mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "9a8eeeba-bd9f-4d23-bed1-1e63b13e6ec1")
-		(at 185.8 70.6 180)
+		(at 186.2125 71.5 180)
 		(descr "Diode SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
 		(tags "diode handsolder")
 		(property "Reference" "D2"
@@ -16466,7 +16466,7 @@
 		(uuid "9532dab2-c1d8-49f7-aa2b-25b7429d3866")
 	)
 	(gr_text "SALP_Dev_Board V2.0\nInitial Design by Owen Pyle\nRevisions by Jack Cunningham\n"
-		(at 192.4 87.5 0)
+		(at 192.5 92 0)
 		(layer "B.SilkS")
 		(uuid "29097a43-772c-4dba-9500-242f164ce0be")
 		(effects
@@ -16479,7 +16479,7 @@
 		)
 	)
 	(gr_text "Bottom-1\nTop-0\n00 - HSU/USART\n01 - SPI\n10 - I2C"
-		(at 168.4 72.3 0)
+		(at 168.3 72.1 0)
 		(layer "F.SilkS")
 		(uuid "10fdbb04-aee6-40ab-862b-d5eab3437142")
 		(effects
@@ -16492,7 +16492,7 @@
 		)
 	)
 	(gr_text "LEFTx2: READ\nRIGHTx2: PROGRAM"
-		(at 173.4 72.5 0)
+		(at 173.7 72.5 0)
 		(layer "F.SilkS")
 		(uuid "6d87cf32-4c5d-4762-b9f0-e9451ea1a0e1")
 		(effects
@@ -18145,6 +18145,14 @@
 		(uuid "e3b3372b-f6ea-41f0-af6d-286a2150f30a")
 	)
 	(segment
+		(start 179.94 74.06)
+		(end 182.5 71.5)
+		(width 0.3)
+		(layer "F.Cu")
+		(net 9)
+		(uuid "0c18f137-cff4-420b-a040-68774c14a11e")
+	)
+	(segment
 		(start 184.46 96.6)
 		(end 185.76 97.9)
 		(width 0.3)
@@ -18153,28 +18161,20 @@
 		(uuid "443d1334-350c-47f4-a2b0-221d6964f7c1")
 	)
 	(segment
-		(start 183.94 70.6)
-		(end 184.3125 70.6)
-		(width 0.2)
-		(layer "F.Cu")
-		(net 9)
-		(uuid "5a314dab-6f6c-4700-b103-84cb4601af80")
-	)
-	(segment
-		(start 179.94 74.6)
-		(end 183.94 70.6)
-		(width 0.3)
-		(layer "F.Cu")
-		(net 9)
-		(uuid "675c856f-9a99-4c66-9d4f-7ea1f58c2ed9")
-	)
-	(segment
 		(start 181.235 93.85)
 		(end 181.235 94.435)
 		(width 0.2)
 		(layer "F.Cu")
 		(net 9)
 		(uuid "6d6fe175-ce2f-46b5-9bf3-2cddb560969b")
+	)
+	(segment
+		(start 184.725 71.5)
+		(end 184.725 71.385)
+		(width 0.3)
+		(layer "F.Cu")
+		(net 9)
+		(uuid "87c17b07-dbc0-4aed-96e6-252ff310b6f3")
 	)
 	(segment
 		(start 181.235 94.435)
@@ -18191,6 +18191,22 @@
 		(layer "F.Cu")
 		(net 9)
 		(uuid "a359fcee-a33c-4c0e-890c-fe2829a6bbef")
+	)
+	(segment
+		(start 179.94 74.6)
+		(end 179.94 74.06)
+		(width 0.3)
+		(layer "F.Cu")
+		(net 9)
+		(uuid "e30cd5e1-a41e-49c5-8574-6f43e6bdde2c")
+	)
+	(segment
+		(start 182.5 71.5)
+		(end 184.725 71.5)
+		(width 0.3)
+		(layer "F.Cu")
+		(net 9)
+		(uuid "e7630b39-acb1-48a5-8799-83e234b8f839")
 	)
 	(segment
 		(start 183.4 96.6)
@@ -18281,20 +18297,28 @@
 		(uuid "e0d2006e-3dbb-4f02-956c-63ec5a0da936")
 	)
 	(segment
-		(start 189.555 72.8675)
-		(end 187.2875 70.6)
-		(width 0.3)
-		(layer "F.Cu")
-		(net 10)
-		(uuid "14bf1c48-14e2-4189-b201-164174617d21")
-	)
-	(segment
 		(start 189.555 74.6)
 		(end 189.555 72.8675)
 		(width 0.3)
 		(layer "F.Cu")
 		(net 10)
-		(uuid "543f602f-b836-4080-a247-592e6015888a")
+		(uuid "61384ca5-957f-4a3b-b1e3-45bba25da37b")
+	)
+	(segment
+		(start 189.555 72.8675)
+		(end 188.1875 71.5)
+		(width 0.3)
+		(layer "F.Cu")
+		(net 10)
+		(uuid "b1af9127-2ddc-4a35-ae58-4ef64c01ddf5")
+	)
+	(segment
+		(start 188.1875 71.5)
+		(end 187.7 71.5)
+		(width 0.3)
+		(layer "F.Cu")
+		(net 10)
+		(uuid "e70cb3cf-a1a6-401f-991e-c4ed646b452d")
 	)
 	(segment
 		(start 164.5625 111)

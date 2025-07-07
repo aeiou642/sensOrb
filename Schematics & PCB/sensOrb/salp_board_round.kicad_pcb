@@ -901,7 +901,7 @@
 		(descr "Through hole straight pin header, 1x06, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x06 2.54mm single row")
 		(property "Reference" "J6"
-			(at 1 -2.38 0)
+			(at -2.8 -0.78 0)
 			(layer "F.SilkS")
 			(uuid "c77f09cc-d924-478f-9c6a-d97bf80066e4")
 			(effects
@@ -1543,13 +1543,14 @@
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "capacitor handsolder")
 		(property "Reference" "C14"
-			(at 0.1 -1.6 90)
+			(at 0.4 -1.7 90)
 			(layer "F.SilkS")
 			(uuid "0c7a756e-ebdc-469a-b2c4-7aa12e95dd36")
 			(effects
 				(font
-					(size 0.9 0.9)
-					(thickness 0.15)
+					(size 1 0.9)
+					(thickness 0.153)
+					(bold yes)
 				)
 			)
 		)
@@ -1759,8 +1760,9 @@
 			(uuid "97ae315a-ca0e-4f5a-9f1b-23611fc12f29")
 			(effects
 				(font
-					(size 0.701366 0.701366)
-					(thickness 0.15)
+					(size 1 0.701366)
+					(thickness 0.153)
+					(bold yes)
 				)
 			)
 		)
@@ -2785,7 +2787,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor handsolder")
 		(property "Reference" "R11"
-			(at -2.6 0 180)
+			(at -2.6 0.1 180)
 			(layer "F.SilkS")
 			(uuid "e3ab5464-b4b9-4bc0-900e-bccd2a9e2eb1")
 			(effects
@@ -5201,7 +5203,7 @@
 			(effects
 				(font
 					(size 1 1)
-					(thickness 0.15)
+					(thickness 0.153)
 				)
 			)
 		)
@@ -7848,7 +7850,7 @@
 		(descr "module CMS SOT223 4 pins")
 		(tags "CMS SOT")
 		(property "Reference" "U4"
-			(at -1.2 -4.1 360)
+			(at -1.3 -4.4 360)
 			(layer "F.SilkS")
 			(uuid "f505df97-e495-4bae-a098-afe5f3a1e09e")
 			(effects
@@ -8764,13 +8766,13 @@
 		(descr "Through hole straight pin header, 1x03, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x03 2.54mm single row")
 		(property "Reference" "SEL1"
-			(at 2.7 -2.5 0)
+			(at 2.7 -2.4 0)
 			(layer "F.SilkS")
 			(uuid "d3f0bcac-5f8a-4cf9-86a0-ab1dca55cebc")
 			(effects
 				(font
 					(size 1 1)
-					(thickness 0.15)
+					(thickness 0.153)
 				)
 			)
 		)
@@ -11779,7 +11781,7 @@
 	(footprint "Battery:BatteryHolder_Keystone_1060_1x2032"
 		(layer "B.Cu")
 		(uuid "1022e775-3f12-405f-a2da-21524d93d784")
-		(at 157.1 90.05 90)
+		(at 157.1 89.95 90)
 		(descr "http://www.keyelco.com/product-pdf.cfm?p=726")
 		(tags "CR2032 BR2032 BatteryHolder Battery")
 		(property "Reference" "BT1"
@@ -16463,27 +16465,41 @@
 		(layer "Edge.Cuts")
 		(uuid "9532dab2-c1d8-49f7-aa2b-25b7429d3866")
 	)
-	(gr_text "Bottom-1\nTop-0\n\n00 - HSU/USART\n01 - SPI\n10 - I2C"
-		(at 168.8 70.7 0)
+	(gr_text "SALP_Dev_Board V2.0\nInitial Design by Owen Pyle\nRevisions by Jack Cunningham\n"
+		(at 192.4 87.5 0)
+		(layer "B.SilkS")
+		(uuid "29097a43-772c-4dba-9500-242f164ce0be")
+		(effects
+			(font
+				(size 1 0.9)
+				(thickness 0.153)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "Bottom-1\nTop-0\n00 - HSU/USART\n01 - SPI\n10 - I2C"
+		(at 168.4 72.3 0)
 		(layer "F.SilkS")
 		(uuid "10fdbb04-aee6-40ab-862b-d5eab3437142")
 		(effects
 			(font
-				(size 0.7 0.7)
-				(thickness 0.15)
+				(size 1 0.7)
+				(thickness 0.153)
 				(bold yes)
 			)
 			(justify left bottom)
 		)
 	)
 	(gr_text "LEFTx2: READ\nRIGHTx2: PROGRAM"
-		(at 173.9 72.6 0)
+		(at 173.4 72.5 0)
 		(layer "F.SilkS")
 		(uuid "6d87cf32-4c5d-4762-b9f0-e9451ea1a0e1")
 		(effects
 			(font
-				(size 0.7 0.7)
-				(thickness 0.1)
+				(size 1 0.7)
+				(thickness 0.153)
+				(bold yes)
 			)
 			(justify left bottom)
 		)
@@ -17089,6 +17105,14 @@
 		(uuid "fc2f1794-5811-45d2-8c73-4a1e3c5f0f89")
 	)
 	(segment
+		(start 157.1 75.3)
+		(end 157.1 72.9)
+		(width 1)
+		(layer "B.Cu")
+		(net 1)
+		(uuid "24101554-79b5-41c7-9a89-44deb8728748")
+	)
+	(segment
 		(start 160.2 107.1)
 		(end 160.3 107.2)
 		(width 0.2)
@@ -17103,14 +17127,6 @@
 		(layer "B.Cu")
 		(net 1)
 		(uuid "3fd05951-cdd3-41c5-b4dc-b761c205cb2d")
-	)
-	(segment
-		(start 157.1 75.4)
-		(end 157.1 72.9)
-		(width 1)
-		(layer "B.Cu")
-		(net 1)
-		(uuid "4030f605-c95e-40cb-89ef-fef18c562c79")
 	)
 	(segment
 		(start 178 109.098223)
@@ -17353,20 +17369,28 @@
 		(uuid "26ecca60-ead8-413d-8f41-ce57748c052c")
 	)
 	(segment
-		(start 158.2 104.7)
-		(end 160.1 102.8)
-		(width 0.5)
-		(layer "B.Cu")
-		(net 2)
-		(uuid "40725dcc-8d11-4ee7-9fdb-c174a50e300b")
-	)
-	(segment
 		(start 168.1 101.7)
 		(end 168.1 98.7)
 		(width 0.5)
 		(layer "B.Cu")
 		(net 2)
 		(uuid "605ee8f6-c709-4f38-88e2-19dc84336939")
+	)
+	(segment
+		(start 157.1 104.7)
+		(end 156.1 105.7)
+		(width 1)
+		(layer "B.Cu")
+		(net 2)
+		(uuid "65fad54c-6e86-430e-be67-16a137899718")
+	)
+	(segment
+		(start 158.2 104.7)
+		(end 157.1 104.7)
+		(width 1)
+		(layer "B.Cu")
+		(net 2)
+		(uuid "68db52ec-177c-4fee-a78c-1ff106c4344a")
 	)
 	(segment
 		(start 164.9625 102.75)
@@ -17385,12 +17409,12 @@
 		(uuid "6e30db4c-6580-4747-84ad-190ce957d613")
 	)
 	(segment
-		(start 157.1 104.7)
-		(end 158.2 104.7)
-		(width 1)
+		(start 158.2 104.7)
+		(end 160.1 102.8)
+		(width 0.5)
 		(layer "B.Cu")
 		(net 2)
-		(uuid "78893911-bbf4-4b95-a382-a2ae5d2bfc1b")
+		(uuid "6e48ed8b-4fa6-42a8-9a10-ff4c3f25cc61")
 	)
 	(segment
 		(start 154.0375 108.75)
@@ -17433,20 +17457,12 @@
 		(uuid "c41e2844-472f-4383-9cba-b09875725f33")
 	)
 	(segment
-		(start 153.7 105.7)
-		(end 156.1 105.7)
-		(width 1)
-		(layer "B.Cu")
-		(net 2)
-		(uuid "d63c618b-2c95-49b2-a71b-f0bcb1360401")
-	)
-	(segment
 		(start 156.1 105.7)
-		(end 157.1 104.7)
+		(end 153.7 105.7)
 		(width 1)
 		(layer "B.Cu")
 		(net 2)
-		(uuid "e889b67b-7bb8-4926-b575-0cafce928ab1")
+		(uuid "f050c287-1480-4a42-8bc4-22dfc7a6371f")
 	)
 	(segment
 		(start 157.4625 112.7)

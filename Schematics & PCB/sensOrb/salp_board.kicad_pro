@@ -486,15 +486,15 @@
       "plot": "Output/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "salp_board.step",
+      "step": "",
       "svg": "",
-      "vrml": "salp_board.wrl"
+      "vrml": ""
     },
     "page_layout_descr_file": ""
   },
   "schematic": {
     "annotate_start_num": 0,
-    "bom_export_filename": "C:\\Users\\owenp\\Downloads\\salp_board.csv",
+    "bom_export_filename": "",
     "bom_fmt_presets": [],
     "bom_fmt_settings": {
       "field_delimiter": ",",
@@ -544,23 +544,11 @@
           "label": "DNP",
           "name": "${DNP}",
           "show": true
-        },
-        {
-          "group_by": false,
-          "label": "#",
-          "name": "${ITEM_NUMBER}",
-          "show": false
-        },
-        {
-          "group_by": false,
-          "label": "Description",
-          "name": "Description",
-          "show": false
         }
       ],
       "filter_string": "",
       "group_symbols": true,
-      "name": "",
+      "name": "Grouped By Value",
       "sort_asc": true,
       "sort_field": "Reference"
     },

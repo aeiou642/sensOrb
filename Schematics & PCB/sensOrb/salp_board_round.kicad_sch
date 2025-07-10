@@ -5372,7 +5372,7 @@
 				)
 			)
 		)
-		(symbol "Transistor_FET:IRLML6402"
+		(symbol "Transistor_FET:DMN10H220L"
 			(pin_names hide)
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -5386,7 +5386,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "IRLML6402"
+			(property "Value" "DMN10H220L"
 				(at 5.08 0 0)
 				(effects
 					(font
@@ -5406,7 +5406,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "https://www.infineon.com/dgdl/irlml6402pbf.pdf?fileId=5546d462533600a401535668d5c2263c"
+			(property "Datasheet" "http://www.diodes.com/assets/Datasheets/DMN10H220L.pdf"
 				(at 5.08 -3.81 0)
 				(effects
 					(font
@@ -5416,7 +5416,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "-3.7A Id, -20V Vds, 65mOhm Rds, P-Channel HEXFET Power MOSFET, SOT-23"
+			(property "Description" "1.6A Id, 100V Vds, N-Channel MOSFET, SOT-23"
 				(at 0 0 0)
 				(effects
 					(font
@@ -5425,7 +5425,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "P-Channel HEXFET MOSFET"
+			(property "ki_keywords" "N-Channel MOSFET"
 				(at 0 0 0)
 				(effects
 					(font
@@ -5443,7 +5443,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "IRLML6402_0_1"
+			(symbol "DMN10H220L_0_1"
 				(polyline
 					(pts
 						(xy 0.254 0) (xy -2.54 0)
@@ -5530,7 +5530,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0.762 1.778) (xy 3.302 1.778) (xy 3.302 -1.778) (xy 0.762 -1.778)
+						(xy 0.762 -1.778) (xy 3.302 -1.778) (xy 3.302 1.778) (xy 0.762 1.778)
 					)
 					(stroke
 						(width 0)
@@ -5542,7 +5542,7 @@
 				)
 				(polyline
 					(pts
-						(xy 2.286 0) (xy 1.27 0.381) (xy 1.27 -0.381) (xy 2.286 0)
+						(xy 1.016 0) (xy 2.032 0.381) (xy 2.032 -0.381) (xy 1.016 0)
 					)
 					(stroke
 						(width 0)
@@ -5554,7 +5554,7 @@
 				)
 				(polyline
 					(pts
-						(xy 2.794 -0.508) (xy 2.921 -0.381) (xy 3.683 -0.381) (xy 3.81 -0.254)
+						(xy 2.794 0.508) (xy 2.921 0.381) (xy 3.683 0.381) (xy 3.81 0.254)
 					)
 					(stroke
 						(width 0)
@@ -5566,7 +5566,7 @@
 				)
 				(polyline
 					(pts
-						(xy 3.302 -0.381) (xy 2.921 0.254) (xy 3.683 0.254) (xy 3.302 -0.381)
+						(xy 3.302 0.381) (xy 2.921 -0.254) (xy 3.683 -0.254) (xy 3.302 0.381)
 					)
 					(stroke
 						(width 0)
@@ -5610,7 +5610,7 @@
 					)
 				)
 			)
-			(symbol "IRLML6402_1_1"
+			(symbol "DMN10H220L_1_1"
 				(pin input line
 					(at -5.08 0 0)
 					(length 2.54)
@@ -6341,12 +6341,6 @@
 		)
 	)
 	(junction
-		(at 212.09 52.07)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0215b68e-67d1-4870-8cef-fb53ec112912")
-	)
-	(junction
 		(at 91.44 179.07)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6479,12 +6473,6 @@
 		(uuid "6c6b34df-65fe-4094-a3cf-34fca8782ce0")
 	)
 	(junction
-		(at 212.09 73.66)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "74c119ca-ab2e-4c61-94a0-c719d299c337")
-	)
-	(junction
 		(at 251.46 104.14)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6501,6 +6489,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7ecbca7e-de89-4103-a36b-0ae66fb21cae")
+	)
+	(junction
+		(at 248.92 60.96)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7f426a29-4c55-4999-9800-52c29172d26b")
 	)
 	(junction
 		(at 97.79 189.23)
@@ -6593,16 +6587,16 @@
 		(uuid "d1731474-a3e5-4544-88d4-9c746502161d")
 	)
 	(junction
-		(at 212.09 60.96)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d35e763c-93cd-4e8f-a100-a541f0c6c107")
-	)
-	(junction
 		(at 44.45 139.7)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "db3352e4-8666-4837-af48-bb1ef93fce39")
+	)
+	(junction
+		(at 212.09 60.96)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ddb74f07-3b7f-4202-8820-921fe21252d2")
 	)
 	(junction
 		(at 82.55 154.94)
@@ -6627,12 +6621,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "fac56e4e-4472-4a7c-9516-2a5e271e2dd6")
-	)
-	(junction
-		(at 212.09 31.75)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "fb1d75ec-56e8-4a4e-9164-553199d1c8d3")
 	)
 	(junction
 		(at 212.09 29.21)
@@ -6718,13 +6706,13 @@
 	)
 	(wire
 		(pts
-			(xy 207.01 31.75) (xy 207.01 64.77)
+			(xy 212.09 60.96) (xy 220.98 60.96)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "00be9b22-b616-4fb6-82b5-fec7ae78a18e")
+		(uuid "0057096a-35df-4f80-acaf-89a6d1d613db")
 	)
 	(wire
 		(pts
@@ -6878,7 +6866,7 @@
 	)
 	(wire
 		(pts
-			(xy 231.14 53.34) (xy 231.14 48.26)
+			(xy 226.06 52.07) (xy 226.06 53.34)
 		)
 		(stroke
 			(width 0)
@@ -6908,23 +6896,13 @@
 	)
 	(wire
 		(pts
-			(xy 243.84 43.18) (xy 243.84 52.07)
+			(xy 248.92 43.18) (xy 248.92 46.99)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "14e75173-bc2a-4cb9-afc4-c962afeaf10c")
-	)
-	(wire
-		(pts
-			(xy 224.79 53.34) (xy 231.14 53.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "174d6e33-4ea8-4e59-bbb5-deeaa578ddee")
+		(uuid "17205fc5-dafb-4e52-ae8e-7a2672abcfbb")
 	)
 	(wire
 		(pts
@@ -6968,16 +6946,6 @@
 	)
 	(wire
 		(pts
-			(xy 212.09 73.66) (xy 212.09 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "192ea353-f8ad-41f6-92b4-03e6f6407b24")
-	)
-	(wire
-		(pts
 			(xy 45.72 31.75) (xy 52.07 31.75)
 		)
 		(stroke
@@ -6985,16 +6953,6 @@
 			(type default)
 		)
 		(uuid "1ae1d0fb-27fd-4b57-ba4e-da12f27ae1d6")
-	)
-	(wire
-		(pts
-			(xy 212.09 60.96) (xy 219.71 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1d5a5827-0b0e-44af-90b8-820d6d6bef75")
 	)
 	(wire
 		(pts
@@ -7178,7 +7136,7 @@
 	)
 	(wire
 		(pts
-			(xy 212.09 29.21) (xy 212.09 31.75)
+			(xy 212.09 29.21) (xy 212.09 35.56)
 		)
 		(stroke
 			(width 0)
@@ -7195,6 +7153,16 @@
 			(type default)
 		)
 		(uuid "32e0c67e-6771-4919-946e-ab2c95f1c975")
+	)
+	(wire
+		(pts
+			(xy 212.09 60.96) (xy 212.09 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "32e98b93-bd95-46af-b4e6-1bba46a64725")
 	)
 	(wire
 		(pts
@@ -7228,6 +7196,26 @@
 	)
 	(wire
 		(pts
+			(xy 248.92 60.96) (xy 248.92 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3612fce0-b147-4650-a6af-5d4cbcbabc59")
+	)
+	(wire
+		(pts
+			(xy 236.22 52.07) (xy 236.22 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3619687d-68d2-40e3-9eaa-7affa2c0dcf9")
+	)
+	(wire
+		(pts
 			(xy 26.67 170.18) (xy 26.67 171.45)
 		)
 		(stroke
@@ -7245,6 +7233,16 @@
 			(type default)
 		)
 		(uuid "37631dd4-1f1f-43c9-9506-287cf03ebfd5")
+	)
+	(wire
+		(pts
+			(xy 246.38 60.96) (xy 248.92 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "37725500-bff2-440b-bdf1-23aa0c13ceb9")
 	)
 	(wire
 		(pts
@@ -7308,16 +7306,6 @@
 	)
 	(wire
 		(pts
-			(xy 212.09 31.75) (xy 212.09 35.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3e41244f-e437-4b8d-a97b-98ff65c1ad90")
-	)
-	(wire
-		(pts
 			(xy 82.55 154.94) (xy 86.36 154.94)
 		)
 		(stroke
@@ -7338,7 +7326,7 @@
 	)
 	(wire
 		(pts
-			(xy 212.09 46.99) (xy 212.09 52.07)
+			(xy 212.09 46.99) (xy 212.09 60.96)
 		)
 		(stroke
 			(width 0)
@@ -7358,16 +7346,6 @@
 	)
 	(wire
 		(pts
-			(xy 229.87 64.77) (xy 229.87 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "428312bd-e99b-4d98-9b1e-dd6776097df6")
-	)
-	(wire
-		(pts
 			(xy 72.39 154.94) (xy 77.47 154.94)
 		)
 		(stroke
@@ -7375,6 +7353,16 @@
 			(type default)
 		)
 		(uuid "42a7be8d-e6ad-406d-bc64-6483e2eda5d0")
+	)
+	(wire
+		(pts
+			(xy 248.92 43.18) (xy 243.84 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "46880c6f-d060-4c79-a627-30a85c8d9763")
 	)
 	(wire
 		(pts
@@ -7405,16 +7393,6 @@
 			(type default)
 		)
 		(uuid "4861c838-18af-4b66-9971-147560bfc4a2")
-	)
-	(wire
-		(pts
-			(xy 231.14 73.66) (xy 212.09 73.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "49a893ac-4aa2-4121-b6a6-cde577b19638")
 	)
 	(wire
 		(pts
@@ -7658,16 +7636,6 @@
 	)
 	(wire
 		(pts
-			(xy 231.14 60.96) (xy 231.14 73.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "67b90393-38fe-440f-ae52-b8669ecb61d3")
-	)
-	(wire
-		(pts
 			(xy 31.75 217.17) (xy 33.02 217.17)
 		)
 		(stroke
@@ -7908,16 +7876,6 @@
 	)
 	(wire
 		(pts
-			(xy 229.87 64.77) (xy 207.01 64.77)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "86b55395-c280-4c8e-aa66-d81722fbea78")
-	)
-	(wire
-		(pts
 			(xy 154.94 39.37) (xy 152.4 39.37)
 		)
 		(stroke
@@ -7945,16 +7903,6 @@
 			(type default)
 		)
 		(uuid "896f188b-6b60-4e5a-ae7b-5bbca73231f6")
-	)
-	(wire
-		(pts
-			(xy 212.09 52.07) (xy 212.09 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8b915881-842e-44bf-b46a-71e648393fd1")
 	)
 	(wire
 		(pts
@@ -8308,13 +8256,23 @@
 	)
 	(wire
 		(pts
-			(xy 236.22 53.34) (xy 236.22 48.26)
+			(xy 241.3 53.34) (xy 241.3 52.07)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "a9bd37b8-5f78-4e7d-b2d7-34842b876a7d")
+	)
+	(wire
+		(pts
+			(xy 248.92 52.07) (xy 248.92 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ab40908d-ca24-4f78-9f1f-59826f4bbcd5")
 	)
 	(wire
 		(pts
@@ -8408,6 +8366,16 @@
 	)
 	(wire
 		(pts
+			(xy 231.14 52.07) (xy 231.14 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b6bf099d-cbce-4b54-9b43-28ed9ec7b12d")
+	)
+	(wire
+		(pts
 			(xy 33.02 217.17) (xy 33.02 222.25)
 		)
 		(stroke
@@ -8415,6 +8383,16 @@
 			(type default)
 		)
 		(uuid "b6fd93e8-f0e1-48c6-8765-f850934d6a33")
+	)
+	(wire
+		(pts
+			(xy 241.3 52.07) (xy 236.22 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b9a27157-c61c-4775-8b36-4f16b9deced5")
 	)
 	(wire
 		(pts
@@ -8848,16 +8826,6 @@
 	)
 	(wire
 		(pts
-			(xy 207.01 31.75) (xy 212.09 31.75)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dfdf24f9-1a2a-499b-a03c-55fd785059fe")
-	)
-	(wire
-		(pts
 			(xy 116.84 77.47) (xy 115.57 77.47)
 		)
 		(stroke
@@ -8865,6 +8833,16 @@
 			(type default)
 		)
 		(uuid "e0f9fb30-d1ef-418b-9eb5-914185b60f66")
+	)
+	(wire
+		(pts
+			(xy 226.06 52.07) (xy 231.14 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e101daf2-b514-4860-8028-766ef1276a4d")
 	)
 	(wire
 		(pts
@@ -9088,6 +9066,16 @@
 	)
 	(wire
 		(pts
+			(xy 231.14 60.96) (xy 236.22 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f5c59f5a-2baf-47fb-81a9-44db23a982af")
+	)
+	(wire
+		(pts
 			(xy 152.4 36.83) (xy 167.64 36.83)
 		)
 		(stroke
@@ -9108,16 +9096,6 @@
 	)
 	(wire
 		(pts
-			(xy 217.17 52.07) (xy 243.84 52.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f8dddf00-5fab-4e50-8224-917bb207e9a4")
-	)
-	(wire
-		(pts
 			(xy 132.08 80.01) (xy 133.35 80.01)
 		)
 		(stroke
@@ -9135,16 +9113,6 @@
 			(type default)
 		)
 		(uuid "f9efb73c-1635-4348-98a6-3965eed7629c")
-	)
-	(wire
-		(pts
-			(xy 212.09 60.96) (xy 212.09 73.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fa05dc8d-6388-43ad-8aaf-4e36679a12b4")
 	)
 	(wire
 		(pts
@@ -11747,6 +11715,71 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 248.92 68.58 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "244805fd-8678-4644-9321-37b2c919b209")
+		(property "Reference" "#PWR025"
+			(at 248.92 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 251.714 64.262 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 248.92 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 248.92 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 248.92 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5de8031d-e4fa-4b0b-9b58-3a6489b0d0e2")
+		)
+		(instances
+			(project "salp_board_round"
+				(path "/e225bae8-edfa-4156-b128-1693f60722d7"
+					(reference "#PWR025")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector_Generic:Conn_02x09_Top_Bottom")
 		(at 138.43 80.01 0)
 		(unit 1)
@@ -11994,6 +12027,80 @@
 			(project "salp_board_round"
 				(path "/e225bae8-edfa-4156-b128-1693f60722d7"
 					(reference "#PWR029")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_FET:DMN10H220L")
+		(at 226.06 58.42 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2add83ff-fbe5-42b2-8c07-2905493d0c3c")
+		(property "Reference" "Q1"
+			(at 226.06 64.77 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "DMN10H220L"
+			(at 226.06 67.31 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+			(at 224.155 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.diodes.com/assets/Datasheets/DMN10H220L.pdf"
+			(at 222.25 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "1.6A Id, 100V Vds, N-Channel MOSFET, SOT-23"
+			(at 226.06 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8d33c1cc-13a7-4d99-bdb3-2cb93f3fc943")
+		)
+		(pin "2"
+			(uuid "1d8009b4-baf0-4291-a7bc-c44c8dc284a8")
+		)
+		(pin "3"
+			(uuid "a28b19ca-1e7a-4d86-aeb8-ae38ef1e2591")
+		)
+		(instances
+			(project ""
+				(path "/e225bae8-edfa-4156-b128-1693f60722d7"
+					(reference "Q1")
 					(unit 1)
 				)
 			)
@@ -12408,6 +12515,147 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_Small_US")
+		(at 248.92 49.53 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3a6ac0b5-ad44-4cd3-a3d7-5d504519e68f")
+		(property "Reference" "R8"
+			(at 251.206 49.784 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1k"
+			(at 246.38 49.53 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+			(at 248.92 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 248.92 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, small US symbol"
+			(at 248.92 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5b9e3af9-4bd5-4010-8ced-6183c8d20348")
+		)
+		(pin "2"
+			(uuid "3b17fb1a-066e-4500-9566-2671e59eb13b")
+		)
+		(instances
+			(project "salp_board_round"
+				(path "/e225bae8-edfa-4156-b128-1693f60722d7"
+					(reference "R8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_FET:DMN10H220L")
+		(at 241.3 58.42 90)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3c1ce36e-15c7-44d2-b993-fa829590d6d7")
+		(property "Reference" "Q2"
+			(at 241.3 64.77 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "DMN10H220L"
+			(at 241.3 67.31 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+			(at 243.205 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.diodes.com/assets/Datasheets/DMN10H220L.pdf"
+			(at 245.11 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "1.6A Id, 100V Vds, N-Channel MOSFET, SOT-23"
+			(at 241.3 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4de0f0e3-a790-453d-9de3-bc6e8a817bb7")
+		)
+		(pin "2"
+			(uuid "020c03ea-8744-4c25-bd8b-1106aa7955cb")
+		)
+		(pin "3"
+			(uuid "c266bb1f-88af-45bd-9168-062c51924297")
+		)
+		(instances
+			(project "salp_board_round"
+				(path "/e225bae8-edfa-4156-b128-1693f60722d7"
+					(reference "Q2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 101.6 154.94 90)
 		(mirror x)
@@ -12605,80 +12853,6 @@
 			(project "salp_board_round"
 				(path "/e225bae8-edfa-4156-b128-1693f60722d7"
 					(reference "C9")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Transistor_FET:IRLML6402")
-		(at 224.79 58.42 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "479a9733-8f41-4789-9761-03af36868d36")
-		(property "Reference" "Q1"
-			(at 224.79 64.77 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "IRLML6402"
-			(at 224.79 67.31 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 222.885 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.infineon.com/dgdl/irlml6402pbf.pdf?fileId=5546d462533600a401535668d5c2263c"
-			(at 220.98 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Description" "-3.7A Id, -20V Vds, 65mOhm Rds, P-Channel HEXFET Power MOSFET, SOT-23"
-			(at 224.79 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "97420ce1-a634-4a23-801d-5bbf83c23018")
-		)
-		(pin "1"
-			(uuid "d7f88b7a-3200-4318-9002-f28313f289f1")
-		)
-		(pin "3"
-			(uuid "f18d8a7a-8801-4dfe-8334-d7e040694f43")
-		)
-		(instances
-			(project "salp_board_round"
-				(path "/e225bae8-edfa-4156-b128-1693f60722d7"
-					(reference "Q1")
 					(unit 1)
 				)
 			)
@@ -13285,7 +13459,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 212.09 77.47 0)
+		(at 212.09 69.85 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13293,7 +13467,7 @@
 		(dnp no)
 		(uuid "5f4a94b6-ae75-4bb8-8704-3a27aed74cfc")
 		(property "Reference" "#PWR028"
-			(at 212.09 83.82 0)
+			(at 212.09 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13302,7 +13476,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 214.376 70.866 0)
+			(at 214.376 63.246 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13310,7 +13484,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 212.09 77.47 0)
+			(at 212.09 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13319,7 +13493,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 212.09 77.47 0)
+			(at 212.09 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13328,7 +13502,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 212.09 77.47 0)
+			(at 212.09 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15710,79 +15884,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Transistor_FET:IRLML6402")
-		(at 236.22 58.42 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "b5f3a46c-b7d0-4439-ba59-73d54b47f30c")
-		(property "Reference" "Q2"
-			(at 236.22 64.77 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "IRLML6402"
-			(at 237.744 67.31 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 234.315 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.infineon.com/dgdl/irlml6402pbf.pdf?fileId=5546d462533600a401535668d5c2263c"
-			(at 232.41 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Description" "-3.7A Id, -20V Vds, 65mOhm Rds, P-Channel HEXFET Power MOSFET, SOT-23"
-			(at 236.22 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "2111b21c-f3a5-4373-819b-b616d393ee6b")
-		)
-		(pin "1"
-			(uuid "d9138f2f-05ad-452d-89f0-cb8f7fe75456")
-		)
-		(pin "3"
-			(uuid "51077d73-58f5-4a20-bf06-5337ed8c5b6d")
-		)
-		(instances
-			(project "salp_board_round"
-				(path "/e225bae8-edfa-4156-b128-1693f60722d7"
-					(reference "Q2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 138.43 186.69 0)
 		(unit 1)
@@ -16305,72 +16406,6 @@
 		)
 	)
 	(symbol
-		(lib_name "VCC_1")
-		(lib_id "power:VCC")
-		(at 241.3 60.96 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "d23d5b8c-873f-4463-a96c-0d37d0280fa4")
-		(property "Reference" "#PWR031"
-			(at 237.49 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 246.634 60.96 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 241.3 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 241.3 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
-			(at 241.3 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "1006627d-5af6-41c2-8124-225df930bc7a")
-		)
-		(instances
-			(project "salp_board_round"
-				(path "/e225bae8-edfa-4156-b128-1693f60722d7"
-					(reference "#PWR031")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector_Generic:Conn_01x03")
 		(at 167.64 48.26 90)
 		(mirror x)
@@ -16655,73 +16690,6 @@
 			(project "salp_board_round"
 				(path "/e225bae8-edfa-4156-b128-1693f60722d7"
 					(reference "U3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small_US")
-		(at 214.63 52.07 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "d9755ac6-ec92-4f06-86b4-937591f6ec5b")
-		(property "Reference" "R8"
-			(at 215.392 54.61 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 215.392 57.15 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
-			(at 214.63 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 214.63 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, small US symbol"
-			(at 214.63 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "44f36901-562d-4cc5-81ca-3e36cf987ba7")
-		)
-		(pin "2"
-			(uuid "f87bb2ba-c57d-4f33-9442-951a23d1ea5a")
-		)
-		(instances
-			(project "salp_board_round"
-				(path "/e225bae8-edfa-4156-b128-1693f60722d7"
-					(reference "R8")
 					(unit 1)
 				)
 			)

@@ -1,0 +1,5 @@
+Blackpill Dev Board STM32 Pin Equivalances:
+
+PA2 = Pin 12?
+PA3 = Pin 13?
+PA4 = Pin 14?

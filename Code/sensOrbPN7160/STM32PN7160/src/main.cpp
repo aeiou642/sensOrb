@@ -1,386 +1,187 @@
-// Basic demo for readings from Adafruit BNO08x
+/**
+ * Example detect tags and show their unique ID
+ * Authors:
+ *        Salvador Mendoza - @Netxing - salmg.net
+ *        For Electronic Cats - electroniccats.com
+ *
+ * Updated by Francisco Torres - Electronic Cats - electroniccats.com
+ *
+ *  March 2020
+ *
+ * This code is beerware; if you see me (or any other collaborator
+ * member) at the local, and you've found our code helpful,
+ * please buy us a round!
+ * Distributed as-is; no warranty is given.
+ */
 
+#include "Electroniccats_PN7150.h"
 #include <Arduino.h>
 #include <Wire.h>
-#include <SoftwareSerial.h>
-#include "MS5837.h"
-#include "TCA9548A.h"
-#include <Adafruit_BNO08x.h>
 
-MS5837 sensor0;
-MS5837 sensor1;
-MS5837 sensor2;
-MS5837 sensor3;
-MS5837 sensor4;
-MS5837 sensor5;
-MS5837 sensor6;
-MS5837 sensor7;
+#define PN7150_IRQ (PA3)
+#define PN7150_VEN (PA4)
+#define PN7150_ADDR (0x28)
 
-MS5837 sensor_arr[8] = {sensor0, sensor1, sensor2, sensor3, sensor4, sensor5, sensor6, sensor7};
-int pressures[8] = {};
+Electroniccats_PN7150 nfc(PN7150_IRQ, PN7150_VEN, PN7150_ADDR, PN7160); // creates a global NFC device interface object, attached to pins 7 (IRQ) and 8 (VEN) and using the default I2C address 0x28,specify PN7150 or PN7160 in constructor
 
-TCA9548A I2CMux;
+// Function prototypes
+String getHexRepresentation(const byte* data, const uint32_t numBytes);
+void displayCardInfo();
 
-// For SPI mode, we need a CS pin
-//#define BNO08X_CS 10
-//#define BNO08X_INT 9
-
-// For SPI mode, we also need a RESET
-//#define BNO08X_RESET 5
-// but not for I2C or UART
-#define BNO08X_RESET -1
-
-Adafruit_BNO08x bno08x(BNO08X_RESET);
-sh2_SensorValue_t sensorValue;
-void setReports(void);
-
-void setup(void) {
-  I2CMux.begin(Wire);             // Wire instance is passed to the library
-  I2CMux.closeAll();  
-  
+void setup() {
   Wire.setSDA(PB7);
   Wire.setSCL(PB6);
   Wire.begin();
-  Serial.begin(115200);
+  
+  Serial.begin(9600);
   while (!Serial)
-    delay(10); // will pause Zero, Leonardo, etc until serial console opens
+    ;
+  Serial.println("Detect NFC tags with PN7150/60");
 
-  Serial.println("Adafruit BNO08x test!");
-
-  // Try to initialize!
-  if (!bno08x.begin_I2C()) {
-    // if (!bno08x.begin_UART(&Serial1)) {  // Requires a device with > 300 byte
-    // UART buffer! if (!bno08x.begin_SPI(BNO08X_CS, BNO08X_INT)) {
-    Serial.println("Failed to find BNO08x chip");
-    while (1) {
-      delay(10);
-    }
-  }
-  Serial.println("BNO08x Found!");
-
-  for (int n = 0; n < bno08x.prodIds.numEntries; n++) {
-    Serial.print("Part ");
-    Serial.print(bno08x.prodIds.entry[n].swPartNumber);
-    Serial.print(": Version :");
-    Serial.print(bno08x.prodIds.entry[n].swVersionMajor);
-    Serial.print(".");
-    Serial.print(bno08x.prodIds.entry[n].swVersionMinor);
-    Serial.print(".");
-    Serial.print(bno08x.prodIds.entry[n].swVersionPatch);
-    Serial.print(" Build ");
-    Serial.println(bno08x.prodIds.entry[n].swBuildNumber);
+  Serial.println("Initializing...");
+  if (nfc.connectNCI()) {  // Wake up the board
+    Serial.println("Error while setting up the mode, check connections!");
+    while (1)
+      ;
   }
 
-  setReports();
-
-  Serial.println("Reading events");
-  delay(100);
-
-  for(int i = 0; i < 8; i++){
-    I2CMux.openChannel(i);
-
-    // Initialize pressure sensor
-    // Returns true if initialization was successful
-    // We can't continue with the rest of the program unless we can initialize the sensor
-    while (!sensor_arr[i].init()) {
-      Serial.println("Init failed!");
-      Serial.println("Are SDA/SCL connected correctly?");
-      Serial.println("\n\n\n");
-      delay(1000);
-    }
-
-    // .init sets the sensor model for us but we can override it if required.
-    // Uncomment the next line to force the sensor model to the MS5837_30BA.
-    sensor_arr[i].setModel(MS5837::MS5837_30BA);
-    sensor_arr[i].setFluidDensity(997); // kg/m^3 (freshwater, 1029 for seawater)
-    I2CMux.closeChannel(i);
+  if (nfc.configureSettings()) {
+    Serial.println("The Configure Settings is failed!");
+    while (1)
+      ;
   }
+
+  // Read/Write mode as default
+  if (nfc.configMode()) {  // Set up the configuration mode
+    Serial.println("The Configure Mode is failed!!");
+    while (1)
+      ;
+  }
+  nfc.startDiscovery();  // NCI Discovery mode
+  Serial.println("Waiting for an Card ...");
 }
 
-// Here is where you define the sensor outputs you want to receive
-void setReports(void) {
-  Serial.println("Setting desired reports");
-  if (!bno08x.enableReport(SH2_ACCELEROMETER)) {
-    Serial.println("Could not enable accelerometer");
-  }
-  if (!bno08x.enableReport(SH2_GYROSCOPE_CALIBRATED)) {
-    Serial.println("Could not enable gyroscope");
-  }
-  /*if (!bno08x.enableReport(SH2_MAGNETIC_FIELD_CALIBRATED)) {
-    Serial.println("Could not enable magnetic field calibrated");
-  }*/
-  /*if (!bno08x.enableReport(SH2_LINEAR_ACCELERATION)) {
-    Serial.println("Could not enable linear acceleration");
-  }*/
-  /*if (!bno08x.enableReport(SH2_GRAVITY)) {
-    Serial.println("Could not enable gravity vector");
-  }*/
-  /*if (!bno08x.enableReport(SH2_ROTATION_VECTOR)) {
-    Serial.println("Could not enable rotation vector");
-  }*/
-  /*if (!bno08x.enableReport(SH2_GEOMAGNETIC_ROTATION_VECTOR)) {
-    Serial.println("Could not enable geomagnetic rotation vector");
-  }
-  if (!bno08x.enableReport(SH2_GAME_ROTATION_VECTOR)) {
-    Serial.println("Could not enable game rotation vector");
-  }
-  if (!bno08x.enableReport(SH2_STEP_COUNTER)) {
-    Serial.println("Could not enable step counter");
-  }
-  if (!bno08x.enableReport(SH2_STABILITY_CLASSIFIER)) {
-    Serial.println("Could not enable stability classifier");
-  }
-  if (!bno08x.enableReport(SH2_RAW_ACCELEROMETER)) {
-    Serial.println("Could not enable raw accelerometer");
-  }
-  if (!bno08x.enableReport(SH2_RAW_GYROSCOPE)) {
-    Serial.println("Could not enable raw gyroscope");
-  }
-  if (!bno08x.enableReport(SH2_RAW_MAGNETOMETER)) {
-    Serial.println("Could not enable raw magnetometer");
-  }
-  if (!bno08x.enableReport(SH2_SHAKE_DETECTOR)) {
-    Serial.println("Could not enable shake detector");
-  }
-  if (!bno08x.enableReport(SH2_PERSONAL_ACTIVITY_CLASSIFIER)) {
-    Serial.println("Could not enable personal activity classifier");
-  }*/
-}
-void printActivity(uint8_t activity_id) {
-  switch (activity_id) {
-  case PAC_UNKNOWN:
-    Serial.print("Unknown");
-    break;
-  case PAC_IN_VEHICLE:
-    Serial.print("In Vehicle");
-    break;
-  case PAC_ON_BICYCLE:
-    Serial.print("On Bicycle");
-    break;
-  case PAC_ON_FOOT:
-    Serial.print("On Foot");
-    break;
-  case PAC_STILL:
-    Serial.print("Still");
-    break;
-  case PAC_TILTING:
-    Serial.print("Tilting");
-    break;
-  case PAC_WALKING:
-    Serial.print("Walking");
-    break;
-  case PAC_RUNNING:
-    Serial.print("Running");
-    break;
-  case PAC_ON_STAIRS:
-    Serial.print("On Stairs");
-    break;
-  default:
-    Serial.print("NOT LISTED");
-  }
-  Serial.print(" (");
-  Serial.print(activity_id);
-  Serial.print(")");
-}
 void loop() {
-  delay(10);
-  Serial.println(" \n");
+  if (nfc.isTagDetected()) {
+    displayCardInfo();
 
-  if (bno08x.wasReset()) {
-    Serial.print("sensor was reset ");
-    setReports();
-  }
-
-  if (!bno08x.getSensorEvent(&sensorValue)) {
-    return;
-  }
-
-  switch (sensorValue.sensorId) {
-
-  case SH2_ACCELEROMETER:
-    Serial.print("Accelerometer - x: ");
-    Serial.print(sensorValue.un.accelerometer.x);
-    Serial.print(" y: ");
-    Serial.print(sensorValue.un.accelerometer.y);
-    Serial.print(" z: ");
-    Serial.println(sensorValue.un.accelerometer.z);
-    break;
-  case SH2_GYROSCOPE_CALIBRATED:
-    Serial.print("Gyro - x: ");
-    Serial.print(sensorValue.un.gyroscope.x);
-    Serial.print(" y: ");
-    Serial.print(sensorValue.un.gyroscope.y);
-    Serial.print(" z: ");
-    Serial.println(sensorValue.un.gyroscope.z);
-    break;
-  case SH2_MAGNETIC_FIELD_CALIBRATED:
-    Serial.print("Magnetic Field - x: ");
-    Serial.print(sensorValue.un.magneticField.x);
-    Serial.print(" y: ");
-    Serial.print(sensorValue.un.magneticField.y);
-    Serial.print(" z: ");
-    Serial.println(sensorValue.un.magneticField.z);
-    break;
-  case SH2_LINEAR_ACCELERATION:
-    Serial.print("Linear Acceration - x: ");
-    Serial.print(sensorValue.un.linearAcceleration.x);
-    Serial.print(" y: ");
-    Serial.print(sensorValue.un.linearAcceleration.y);
-    Serial.print(" z: ");
-    Serial.println(sensorValue.un.linearAcceleration.z);
-    break;
-  case SH2_GRAVITY:
-    Serial.print("Gravity - x: ");
-    Serial.print(sensorValue.un.gravity.x);
-    Serial.print(" y: ");
-    Serial.print(sensorValue.un.gravity.y);
-    Serial.print(" z: ");
-    Serial.println(sensorValue.un.gravity.z);
-    break;
-  case SH2_ROTATION_VECTOR:
-    Serial.print("Rotation Vector - r: ");
-    Serial.print(sensorValue.un.rotationVector.real);
-    Serial.print(" i: ");
-    Serial.print(sensorValue.un.rotationVector.i);
-    Serial.print(" j: ");
-    Serial.print(sensorValue.un.rotationVector.j);
-    Serial.print(" k: ");
-    Serial.println(sensorValue.un.rotationVector.k);
-    break;
-  case SH2_GEOMAGNETIC_ROTATION_VECTOR:
-    Serial.print("Geo-Magnetic Rotation Vector - r: ");
-    Serial.print(sensorValue.un.geoMagRotationVector.real);
-    Serial.print(" i: ");
-    Serial.print(sensorValue.un.geoMagRotationVector.i);
-    Serial.print(" j: ");
-    Serial.print(sensorValue.un.geoMagRotationVector.j);
-    Serial.print(" k: ");
-    Serial.println(sensorValue.un.geoMagRotationVector.k);
-    break;
-
-  case SH2_GAME_ROTATION_VECTOR:
-    Serial.print("Game Rotation Vector - r: ");
-    Serial.print(sensorValue.un.gameRotationVector.real);
-    Serial.print(" i: ");
-    Serial.print(sensorValue.un.gameRotationVector.i);
-    Serial.print(" j: ");
-    Serial.print(sensorValue.un.gameRotationVector.j);
-    Serial.print(" k: ");
-    Serial.println(sensorValue.un.gameRotationVector.k);
-    break;
-
-  case SH2_STEP_COUNTER:
-    Serial.print("Step Counter - steps: ");
-    Serial.print(sensorValue.un.stepCounter.steps);
-    Serial.print(" latency: ");
-    Serial.println(sensorValue.un.stepCounter.latency);
-    break;
-
-  case SH2_STABILITY_CLASSIFIER: {
-    Serial.print("Stability Classification: ");
-    sh2_StabilityClassifier_t stability = sensorValue.un.stabilityClassifier;
-    switch (stability.classification) {
-    case STABILITY_CLASSIFIER_UNKNOWN:
-      Serial.println("Unknown");
-      break;
-    case STABILITY_CLASSIFIER_ON_TABLE:
-      Serial.println("On Table");
-      break;
-    case STABILITY_CLASSIFIER_STATIONARY:
-      Serial.println("Stationary");
-      break;
-    case STABILITY_CLASSIFIER_STABLE:
-      Serial.println("Stable");
-      break;
-    case STABILITY_CLASSIFIER_MOTION:
-      Serial.println("In Motion");
-      break;
+    // It can detect multiple cards at the same time if they use the same protocol
+    if (nfc.remoteDevice.hasMoreTags()) {
+      nfc.activateNextTagDiscovery();
+      Serial.println("Multiple cards are detected!");
     }
-    break;
+
+    Serial.println("Remove the Card");
+    nfc.waitForTagRemoval();
+    Serial.println("Card removed!");
   }
 
-  case SH2_RAW_ACCELEROMETER:
-    Serial.print("Raw Accelerometer - x: ");
-    Serial.print(sensorValue.un.rawAccelerometer.x);
-    Serial.print(" y: ");
-    Serial.print(sensorValue.un.rawAccelerometer.y);
-    Serial.print(" z: ");
-    Serial.println(sensorValue.un.rawAccelerometer.z);
-    break;
-  case SH2_RAW_GYROSCOPE:
-    Serial.print("Raw Gyro - x: ");
-    Serial.print(sensorValue.un.rawGyroscope.x);
-    Serial.print(" y: ");
-    Serial.print(sensorValue.un.rawGyroscope.y);
-    Serial.print(" z: ");
-    Serial.println(sensorValue.un.rawGyroscope.z);
-    break;
-  case SH2_RAW_MAGNETOMETER:
-    Serial.print("Raw Magnetic Field - x: ");
-    Serial.print(sensorValue.un.rawMagnetometer.x);
-    Serial.print(" y: ");
-    Serial.print(sensorValue.un.rawMagnetometer.y);
-    Serial.print(" z: ");
-    Serial.println(sensorValue.un.rawMagnetometer.z);
-    break;
+  Serial.println("Restarting...");
+  nfc.reset();
+  Serial.println("Waiting for a Card...");
+  delay(500);
+}
 
-  case SH2_SHAKE_DETECTOR: {
-    Serial.print("Shake Detector - shake detected on axis: ");
-    sh2_ShakeDetector_t detection = sensorValue.un.shakeDetector;
-    switch (detection.shake) {
-    case SHAKE_X:
-      Serial.println("X");
-      break;
-    case SHAKE_Y:
-      Serial.println("Y");
-      break;
-    case SHAKE_Z:
-      Serial.println("Z");
-      break;
-    default:
-      Serial.println("None");
+String getHexRepresentation(const byte* data, const uint32_t numBytes) {
+  String hexString;
+
+  if (numBytes == 0) {
+    hexString = "null";
+  }
+
+  for (uint32_t szPos = 0; szPos < numBytes; szPos++) {
+    hexString += "0x";
+    if (data[szPos] <= 0xF)
+      hexString += "0";
+    hexString += String(data[szPos] & 0xFF, HEX);
+    if ((numBytes > 1) && (szPos != numBytes - 1)) {
+      hexString += " ";
+    }
+  }
+  return hexString;
+}
+
+void displayCardInfo() {  // Funtion in charge to show the card/s in te field
+  char tmp[16];
+
+  while (true) {
+    switch (nfc.remoteDevice.getProtocol()) {  // Indetify card protocol
+      case nfc.protocol.T1T:
+      case nfc.protocol.T2T:
+      case nfc.protocol.T3T:
+      case nfc.protocol.ISODEP:
+        Serial.print(" - POLL MODE: Remote activated tag type: ");
+        Serial.println(nfc.remoteDevice.getProtocol());
+        break;
+      case nfc.protocol.ISO15693:
+        Serial.println(" - POLL MODE: Remote ISO15693 card activated");
+        break;
+      case nfc.protocol.MIFARE:
+        Serial.println(" - POLL MODE: Remote MIFARE card activated");
+        break;
+      default:
+        Serial.println(" - POLL MODE: Undetermined target");
+        return;
+    }
+
+    switch (nfc.remoteDevice.getModeTech()) {  // Indetify card technology
+      case (nfc.tech.PASSIVE_NFCA):
+        Serial.println("\tTechnology: NFC-A");
+        Serial.print("\tSENS RES = ");
+        Serial.println(getHexRepresentation(nfc.remoteDevice.getSensRes(), nfc.remoteDevice.getSensResLen()));
+
+        Serial.print("\tNFC ID = ");
+        Serial.println(getHexRepresentation(nfc.remoteDevice.getNFCID(), nfc.remoteDevice.getNFCIDLen()));
+
+        Serial.print("\tSEL RES = ");
+        Serial.println(getHexRepresentation(nfc.remoteDevice.getSelRes(), nfc.remoteDevice.getSelResLen()));
+
+        break;
+
+      case (nfc.tech.PASSIVE_NFCB):
+        Serial.println("\tTechnology: NFC-B");
+        Serial.print("\tSENS RES = ");
+        Serial.println(getHexRepresentation(nfc.remoteDevice.getSensRes(), nfc.remoteDevice.getSensResLen()));
+
+        Serial.println("\tAttrib RES = ");
+        Serial.println(getHexRepresentation(nfc.remoteDevice.getAttribRes(), nfc.remoteDevice.getAttribResLen()));
+
+        break;
+
+      case (nfc.tech.PASSIVE_NFCF):
+        Serial.println("\tTechnology: NFC-F");
+        Serial.print("\tSENS RES = ");
+        Serial.println(getHexRepresentation(nfc.remoteDevice.getSensRes(), nfc.remoteDevice.getSensResLen()));
+
+        Serial.print("\tBitrate = ");
+        Serial.println((nfc.remoteDevice.getBitRate() == 1) ? "212" : "424");
+
+        break;
+
+      case (nfc.tech.PASSIVE_NFCV):
+        Serial.println("\tTechnology: NFC-V");
+        Serial.print("\tID = ");
+        Serial.println(getHexRepresentation(nfc.remoteDevice.getID(), sizeof(nfc.remoteDevice.getID())));
+
+        Serial.print("\tAFI = ");
+        Serial.println(nfc.remoteDevice.getAFI());
+
+        Serial.print("\tDSF ID = ");
+        Serial.println(nfc.remoteDevice.getDSFID(), HEX);
+        break;
+
+      default:
+        break;
+    }
+
+    // It can detect multiple cards at the same time if they are the same technology
+    if (nfc.remoteDevice.hasMoreTags()) {
+      Serial.println("Multiple cards are detected!");
+      if (!nfc.activateNextTagDiscovery()) {
+        break;  // Can't activate next tag
+      }
+    } else {
       break;
     }
   }
-
-  case SH2_PERSONAL_ACTIVITY_CLASSIFIER: {
-
-    sh2_PersonalActivityClassifier_t activity =
-        sensorValue.un.personalActivityClassifier;
-    Serial.print("Activity classification - Most likely: ");
-    printActivity(activity.mostLikelyState);
-    Serial.println("");
-
-    Serial.println("Confidences:");
-    // if PAC_OPTION_COUNT is ever > 10, we'll need to
-    // care about page
-    for (uint8_t i = 0; i < PAC_OPTION_COUNT; i++) {
-      Serial.print("\t");
-      printActivity(i);
-      Serial.print(": ");
-      Serial.println(activity.confidence[i]);
-    }
-  }
-  }
-
-  Serial.print("Pressures (mbar): ");
-
-  for(int i = 0; i < 8; i++){
-    I2CMux.openChannel(i);
-    sensor_arr[i].read();
-
-    pressures[i] = sensor_arr[i].pressure();
-    I2CMux.closeChannel(i);
-
-    delay(1);
-  }
-
-  for(int i = 0; i < 8; i++){
-    if(pressures[i] > 0){
-      Serial.print(pressures[i]);
-      Serial.print(" ");
-    }
-  }
-
-  delay(250);
 }

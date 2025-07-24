@@ -1,0 +1,264 @@
+##############################################################################
+# Syntax Coloring Map For ElectronicCats PN7150
+##############################################################################
+# Class and data types (KEYWORD1)
+##############################################################################
+
+Electroniccats_PN7150	KEYWORD1
+nfc	KEYWORD1
+NdefMessage	KEYWORD1
+message	KEYWORD1
+NdefRecord	KEYWORD1
+record	KEYWORD1
+remoteDevice	KEYWORD1
+protocol	KEYWORD1
+tech	KEYWORD1
+modeTech	KEYWORD1
+interface	KEYWORD1
+
+##############################################################################
+# Methods and Functions (KEYWORD2)
+##############################################################################
+# # Electroniccats_PN7150.h
+#######################################
+
+GetFwVersion	KEYWORD2
+begin	KEYWORD2
+hasMessage	KEYWORD2
+writeData	KEYWORD2
+readData	KEYWORD2
+getFirmwareVersion	KEYWORD2
+GetFwVersion	KEYWORD2
+configMode	KEYWORD2
+ConfigMode	KEYWORD2
+configureSettings	KEYWORD2
+ConfigureSettings	KEYWORD2
+startDiscovery	KEYWORD2
+StartDiscovery	KEYWORD2
+stopDiscovery	KEYWORD2
+StopDiscovery	KEYWORD2
+waitForDiscoveryNotification	KEYWORD2
+WaitForDiscoveryNotification	KEYWORD2
+isTagDetected	KEYWORD2
+connectNCI	KEYWORD2
+wakeupNCI	KEYWORD2
+cardModeSend	KEYWORD2
+CardModeSend	KEYWORD2
+cardModeReceive	KEYWORD2
+CardModeReceive	KEYWORD2
+processCardMode	KEYWORD2
+ProcessCardMode	KEYWORD2
+processReaderMode	KEYWORD2
+ProcessReaderMode	KEYWORD2
+processP2pMode	KEYWORD2
+ProcessP2pMode	KEYWORD2
+presenceCheck	KEYWORD2
+PresenceCheck	KEYWORD2
+waitForTagRemoval	KEYWORD2
+readerTagCmd	KEYWORD2
+ReaderTagCmd	KEYWORD2
+readerReActivate	KEYWORD2
+ReaderReActivate	KEYWORD2
+readerActivateNext	KEYWORD2
+ReaderActivateNext	KEYWORD2
+activateNextTagDiscovery	KEYWORD2
+readNdef	KEYWORD2
+readNdefMessage	KEYWORD2
+ReadNdef	KEYWORD2
+writeNdef	KEYWORD2
+writeNdefMessage	KEYWORD2
+WriteNdef	KEYWORD2
+nciFactoryTestPrbs	KEYWORD2
+NxpNci_FactoryTest_Prbs	KEYWORD2
+nciFactoryTestRfOn	KEYWORD2
+NxpNci_FactoryTest_RfOn	KEYWORD2
+reset	KEYWORD2
+setReaderWriterMode	KEYWORD2
+setEmulationMode	KEYWORD2
+setP2PMode	KEYWORD2
+setSendMsgCallback	KEYWORD2
+isReaderDetected	KEYWORD2
+closeCommunication	KEYWORD2
+sendMessage	KEYWORD2
+ndefCallback	KEYWORD2
+
+#######################################
+## Mode.h
+#######################################
+
+getMode KEYWORD2
+
+#######################################
+## NdefMessage.h
+#######################################
+
+begin	KEYWORD2
+getContent	KEYWORD2
+getContentLength	KEYWORD2
+setContent	KEYWORD2
+getRecord	KEYWORD2
+isEmpty	KEYWORD2
+isNotEmpty	KEYWORD2
+hasRecord	KEYWORD2
+addTextRecord	KEYWORD2
+addUriRecord	KEYWORD2
+addMimeMediaRecord	KEYWORD2
+addWiFiRecord	KEYWORD2
+
+#######################################
+## NdefRecord.h
+#######################################
+
+create	KEYWORD2
+isEmpty	KEYWORD2
+isNotEmpty	KEYWORD2
+getType	KEYWORD2
+getPayload	KEYWORD2
+getPayloadLength	KEYWORD2
+getText	KEYWORD2
+getBluetoothName	KEYWORD2
+getBluetoothAddress	KEYWORD2
+getWiFiSSID	KEYWORD2
+getWiFiAuthenticationType	KEYWORD2
+getWiFiEncryptionType	KEYWORD2
+getWiFiNetworkKey	KEYWORD2
+getVCardContent	KEYWORD2
+getUri	KEYWORD2
+setPayload	KEYWORD2
+setPayloadLength	KEYWORD2
+setHeaderFlags	KEYWORD2
+setTypeLength	KEYWORD2
+setRecordType	KEYWORD2
+setStatus	KEYWORD2
+setLanguageCode	KEYWORD2
+getContent	KEYWORD2
+getContentLength	KEYWORD2
+
+#######################################
+## RemoteDevice.h
+#######################################
+
+getInterface	KEYWORD2
+getProtocol	KEYWORD2
+getModeTech	KEYWORD2
+hasMoreTags	KEYWORD2
+getSensRes	KEYWORD2
+getSensResLen	KEYWORD2
+getNFCID	KEYWORD2
+getNFCIDLen	KEYWORD2
+getSelRes	KEYWORD2
+getSelResLen	KEYWORD2
+getRats	KEYWORD2
+getRatsLen	KEYWORD2
+getAttribRes	KEYWORD2
+getAttribResLen	KEYWORD2
+getBitRate	KEYWORD2
+getAFI	KEYWORD2
+getDSFID	KEYWORD2
+getID	KEYWORD2
+setInterface	KEYWORD2
+setProtocol	KEYWORD2
+setProtocol	KEYWORD2
+setModeTech	KEYWORD2
+setMoreTagsAvailable	KEYWORD2
+setInfo	KEYWORD2
+
+##############################################################################
+# Constants (LITERAL1)
+##############################################################################
+## Interface.h
+#######################################
+
+INTF_UNDETERMINED	LITERAL1
+INTF_FRAME	LITERAL1
+INTF_ISODEP	LITERAL1
+INTF_NFCDEP	LITERAL1
+INTF_TAGCMD	LITERAL1
+
+UNDETERMINED	LITERAL1
+FRAME	LITERAL1
+ISODEP	LITERAL1
+NFCDEP	LITERAL1
+TAGCMD	LITERAL1
+
+#######################################
+## Mode.h
+#######################################
+
+READER_WRITER	LITERAL1
+EMULATION	LITERAL1
+P2P	LITERAL1
+
+#######################################
+## ModeTech.h
+#######################################
+
+MODE_POLL	LITERAL1
+MODE_LISTEN	LITERAL1
+MODE_MASK	LITERAL1
+
+POLL	LITERAL1
+LISTEN	LITERAL1
+MASK	LITERAL1
+
+#######################################
+## Protocol.h
+#######################################
+
+PROT_UNDETERMINED	LITERAL1
+PROT_T1T	LITERAL1
+PROT_T2T	LITERAL1
+PROT_T3T	LITERAL1
+PROT_ISODEP	LITERAL1
+PROT_MIFARE	LITERAL1
+PROT_ISO15693	LITERAL1
+
+UNDETERMINED	LITERAL1
+T1T	LITERAL1
+T2T	LITERAL1
+T3T	LITERAL1
+ISODEP	LITERAL1
+MIFARE	LITERAL1
+ISO15693	LITERAL1
+
+#######################################
+## Tech.h
+#######################################
+
+TECH_ACTIVE_NFCA	LITERAL1
+TECH_PASSIVE_NFCB	LITERAL1
+TECH_PASSIVE_NFCF	LITERAL1
+TECH_ACTIVE_NFCA	LITERAL1
+TECH_ACTIVE_NFCF	LITERAL1
+TECH_PASSIVE_15693	LITERAL1
+
+PASSIVE_NFCA	LITERAL1
+PASSIVE_NFCB	LITERAL1
+PASSIVE_NFCF	LITERAL1
+ACTIVE_NFCA	LITERAL1
+ACTIVE_NFCF	LITERAL1
+PASSIVE_15693	LITERAL1
+PASSIVE_NFCV	LITERAL1
+
+#######################################
+## ndef_helper.h
+#######################################
+
+WELL_KNOWN_SIMPLE_TEXT	LITERAL1
+WELL_KNOWN_SIMPLE_URI	LITERAL1
+WELL_KNOWN_SMART_POSTER	LITERAL1
+WELL_KNOWN_HANDOVER_SELECT	LITERAL1
+WELL_KNOWN_HANDOVER_REQUEST	LITERAL1
+WELL_KNOWN_ALTERNATIVE_CARRIER	LITERAL1
+WELL_KNOWN_COLLISION_RESOLUTION	LITERAL1
+MEDIA_VCARD	LITERAL1
+MEDIA_HANDOVER_WIFI	LITERAL1
+MEDIA_HANDOVER_BT	LITERAL1
+MEDIA_HANDOVER_BLE	LITERAL1
+MEDIA_HANDOVER_BLE_SECURE	LITERAL1
+ABSOLUTE_URI	LITERAL1
+UNSUPPORTED_NDEF_RECORD	LITERAL1
+
+recordType	LITERAL1
+recordPayload	LITERAL1
+recordPayloadLength	LITERAL1

@@ -22,6 +22,8 @@
 #include "MS5837.h"
 #include "TCA9548A.h"
 #include <Adafruit_BNO08x.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 MS5837 sensor0;
 MS5837 sensor1;
@@ -34,6 +36,8 @@ MS5837 sensor7;
 
 MS5837 sensor_arr[8] = {sensor0, sensor1, sensor2, sensor3, sensor4, sensor5, sensor6, sensor7};
 int pressures[8] = {};
+char io[1000];
+char acc_io[1000];
 
 TCA9548A I2CMux;
 
@@ -61,6 +65,8 @@ Electroniccats_PN7150 nfc(PN7150_IRQ, PN7150_VEN, PN7150_ADDR, PN7160); // creat
 
 NdefMessage message;
 
+const char a = 7 + '0';
+
 // Three records, "Hello", "world" and Uri "https://www.electroniccats.com"
 const char ndefMessage[] =        {0x91,                                                                                       // MB/ME/CF/1/IL/TNF
                             0x01,                                                                                       // Type length (1 byte)
@@ -71,17 +77,18 @@ const char ndefMessage[] =        {0x91,                                        
                             'H', 'e', 'l', 'l', 'o',                                                                    // Message Payload
                             0x11,                                                                                       // MB/ME/CF/1/IL/TNF
                             0x01,                                                                                       // Type length (1 byte)
-                            0x08,                                                                                       // Payload length
+                            0x08,                                                                                        // Payload length
                             'T',                                                                                        // Type -> 'T' for text, 'U' for URI
                             0x02,                                                                                       // Status
                             'e', 'n',                                                                                   // Language
                             'w', 'o', 'r', 'l', 'd',                                                                    // Message Payload
                             0x51,                                                                                       // MB/ME/CF/1/IL/TNF
                             0x01,                                                                                       // Type length (1 byte)
-                            0x13,                                                                                       // Payload length
-                            'U',                                                                                        // Type -> 'T' for text, 'U' for URI
+                            0x07,                                                                                       // Payload length
+                            'T',                                                                                        // Type -> 'T' for text, 'U' for URI
                             0x02,                                                                                       // Status
-                            'e', 'l', 'e', 'c', 't', 'r', 'o', 'n', 'i', 'c', 'c', 'a', 't', 's', '.', 'c', 'o', 'm'};  // Message Payload
+                            'e', 'n',
+                            io[0], io[1], io[2], io[3]};                                                                // Message Payload
 
 void setup() {
   Wire.setSDA(PB7);
@@ -185,17 +192,69 @@ void loop() {
     return;
   }
 
+  int pressure_size = snprintf(io, sizeof(io), "Pressures: %d %d %d %d %d %d %d %d", pressures[0], pressures[1], pressures[2], pressures[3], pressures[4], pressures[5], pressures[6], pressures[7]);
+  Serial.println(io);
+
+  char accel_x[5];
+  char accel_y[5];
+  char accel_z[5];
+  dtostrf(sensorValue.un.accelerometer.x, 4, 2, accel_x);
+  dtostrf(sensorValue.un.accelerometer.y, 4, 2, accel_y);
+  dtostrf(sensorValue.un.accelerometer.z, 4, 2, accel_z);
+
+  char gyro_x[5];
+  char gyro_y[5];
+  char gyro_z[5];
+  dtostrf(sensorValue.un.gyroscope.z, 4, 2, gyro_x);
+  dtostrf(sensorValue.un.gyroscope.y, 4, 2, gyro_y);
+  dtostrf(sensorValue.un.gyroscope.z, 4, 2, gyro_z);
+
+  int accel_size = snprintf(acc_io, sizeof(acc_io), "Acceleration - x: %s, y: %s, z: %s; Gyro - x: %s, y: %s, z: %s",
+  accel_x, accel_y, accel_z, gyro_x, gyro_y, gyro_z);
+  Serial.println(acc_io);
+
   if (nfc.isReaderDetected()) {
     Serial.println("\nReader detected!");
     Serial.println("Sending NDEF message...");
-    
-    char io_message_data[1000];
 
-    int size = snprintf(io_message_data, sizeof(io_message_data), "Pressures: %d %d %d %d %d %d %d %d", pressures[0], pressures[1], pressures[2], pressures[3], pressures[4], pressures[5], pressures[6], pressures[7]);
-    Serial.println(io_message_data);
+    const char newdefMessage[] =        {0x91,                                                                                       // MB/ME/CF/1/IL/TNF
+                            0x01,                                                                                       // Type length (1 byte)
+                            0x50,                                                                                       // Payload length
+                            'T',                                                                                        // Type -> 'T' for text, 'U' for URI
+                            0x02,                                                                                       // Status
+                            'e', 'n',                                                                                   // Language
+                            acc_io[0], acc_io[1], acc_io[2], acc_io[3], acc_io[4], 
+                            acc_io[5], acc_io[6], acc_io[7], acc_io[8], acc_io[9],
+                            acc_io[10], acc_io[11], acc_io[12], acc_io[13], acc_io[14],
+                            acc_io[15], acc_io[16], acc_io[17], acc_io[18], acc_io[19],
+                            acc_io[20], acc_io[21], acc_io[22], acc_io[23], acc_io[24],
+                            acc_io[25], acc_io[26], acc_io[27], acc_io[28], acc_io[29],
+                            acc_io[30], acc_io[31], acc_io[32], acc_io[33], acc_io[34],
+                            acc_io[35], acc_io[36], acc_io[37], acc_io[38], acc_io[39],
+                            acc_io[40], acc_io[41], acc_io[42], acc_io[43], acc_io[44], 
+                            acc_io[45], acc_io[46], acc_io[47], acc_io[48], acc_io[49],
+                            acc_io[50], acc_io[51], acc_io[52], acc_io[53], acc_io[54],
+                            acc_io[55], acc_io[56], acc_io[57], acc_io[58], acc_io[59],
+                            acc_io[60], acc_io[61], acc_io[62], acc_io[63], acc_io[64],
+                            acc_io[65], acc_io[66], acc_io[67], acc_io[68], acc_io[69],
+                            acc_io[70], acc_io[71], acc_io[72], acc_io[73], acc_io[74], acc_io[75], acc_io[76],                                                             // Message Payload
+                            0x51,                                                                                       // MB/ME/CF/1/IL/TNF
+                            0x01,                                                                                       // Type length (1 byte)
+                            0x36,                                                                                       // Payload length
+                            'T',                                                                                        // Type -> 'T' for text, 'U' for URI
+                            0x02,                                                                                       // Status
+                            'e', 'n',
+                            io[0], io[1], io[2], io[3], io[4], io[5], io[6], io[7], io[8], io[9], io[10],               // Message Payload
+                            io[11], io[12], io[13], io[14], io[15],
+                            io[16], io[17], io[18], io[19], io[20],
+                            io[21], io[22], io[23], io[24], io[25],
+                            io[26], io[27], io[28], io[29], io[30],
+                            io[31], io[32], io[33], io[34], io[35],
+                            io[36], io[37], io[38], io[39], io[40],
+                            io[41], io[42], io[43], io[44], io[45],
+                            io[46], io[47], io[48], io[49], io[50]};                                                                                       
 
-    const char* new_ndefMessage = io_message_data;
-    message.setContent((new_ndefMessage), sizeof(new_ndefMessage));
+    message.setContent((newdefMessage), sizeof(newdefMessage));
     nfc.sendMessage();
     Serial.print("\nWaiting for an NDEF device");
   }
@@ -205,7 +264,6 @@ void messageSentCallback() {
   Serial.println("NDEF message sent!");
   // Do something...
 }
-
 
 void setReports(void) {
   Serial.println("\nSetting desired reports");

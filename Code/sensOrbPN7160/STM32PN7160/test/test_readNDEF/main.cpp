@@ -1,20 +1,13 @@
-/**
- * Example to read NDEF messages
- * Authors:
- *        Salvador Mendoza - @Netxing - salmg.net
- *        Francisco Torres - Electronic Cats - electroniccats.com
- *
- *  August 2023
- *
- * This code is beerware; if you see me (or any other collaborator
- * member) at the local, and you've found our code helpful,
- * please buy us a round!
- * Distributed as-is; no warranty is given.
- */
 
 #include "Electroniccats_PN7150.h"
 #include <Arduino.h>
 #include <Wire.h>
+#include <SoftwareSerial.h>
+#include "MS5837.h"
+#include "TCA9548A.h"
+#include <Adafruit_BNO08x.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 #define PN7150_IRQ (PA3)
 #define PN7150_VEN (PA4)
@@ -61,13 +54,23 @@ void loop() {
     switch (nfc.remoteDevice.getProtocol()) {
       // Read NDEF message from NFC Forum Type 1, 2, 3, 4, 5 tags
       case nfc.protocol.T1T:
+        nfc.readNdefMessage();
+        break;
       case nfc.protocol.T2T:
+        nfc.readNdefMessage();
+        break;
       case nfc.protocol.T3T:
+        nfc.readNdefMessage();
+        break;
       case nfc.protocol.ISODEP:
+        nfc.readNdefMessage();
+        break;
       case nfc.protocol.MIFARE:
         nfc.readNdefMessage();
         break;
       case nfc.protocol.ISO15693:
+        nfc.readNdefMessage();
+        break;
       default:
         break;
     }

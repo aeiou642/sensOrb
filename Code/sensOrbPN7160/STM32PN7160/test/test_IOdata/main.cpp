@@ -1,4 +1,4 @@
-// Basic demo for readings from Adafruit BNO08x
+// Readings from Peripherals
 
 #include <Arduino.h>
 #include <Wire.h>

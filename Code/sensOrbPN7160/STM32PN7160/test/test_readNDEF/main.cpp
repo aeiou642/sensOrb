@@ -9,9 +9,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define PN7150_IRQ (PA3)
-#define PN7150_VEN (PA4)
-#define PN7150_ADDR (0x28)
+#define PN7160_IRQ (PA3)
+#define PN7160_VEN (PA4)
+#define PN7160_ADDR (0x28)
 
 // Function prototypes
 void messageReceivedCallback();
@@ -19,8 +19,10 @@ String getHexRepresentation(const byte *data, const uint32_t dataSize);
 void displayDeviceInfo();
 void displayRecordInfo(NdefRecord record);
 
-Electroniccats_PN7150 nfc(PN7150_IRQ, PN7150_VEN, PN7150_ADDR, PN7160); // creates a global NFC device interface object, attached to pins 7 (IRQ) and 8 (VEN) and using the default I2C address 0x28,specify PN7150 or PN7160 in constructor
+Electroniccats_PN7150 nfc(PN7160_IRQ, PN7160_VEN, PN7160_ADDR, PN7160); // creates a global NFC device interface object, attached to pins 7 (IRQ) and 8 (VEN) and using the default I2C address 0x28,specify PN7150 or PN7160 in constructor
 NdefMessage message;
+
+uint8_t mode = 1;                                                  // modes: 1 = Reader/ Writer, 2 = Emulation, 3 = Peer to peer P2P
 
 void setup() {
   Wire.setSDA(PB7);
@@ -36,16 +38,38 @@ void setup() {
   nfc.setReadMsgCallback(messageReceivedCallback);
 
   Serial.println("Initializing...");
-
-  if (nfc.begin()) {
+  /*if (nfc.begin()) {
     Serial.println("Error initializing PN7150");
     while (true)
       ;
+  }*/
+  Serial.println("Initializing...");
+  if (nfc.connectNCI()) { //Wake up the board
+    Serial.println("Error while setting up the mode, check connections!");
+    while (1);
   }
 
+  if (nfc.configureSettings()) {
+    Serial.println("The Configure Settings failed!");
+    while (1);
+  }
+
+  if(nfc.ConfigMode(mode)){ //Set up the configuration mode
+    Serial.println("The Configure Mode failed!!");
+    while (1);
+  }
+  nfc.StartDiscovery(mode); //NCI Discovery mode
+
   message.begin();
-  nfc.setReaderWriterMode();
+  //nfc.setReaderWriterMode();
+  //nfc.setEmulationMode();
   Serial.print("Waiting for a Card...");
+}
+
+void ResetMode(){                                  //Reset the configuration mode after each reading
+  Serial.println("Re-initializing...");
+  nfc.ConfigMode(mode);
+  nfc.StartDiscovery(mode);
 }
 
 void loop() {
@@ -84,7 +108,8 @@ void loop() {
     nfc.waitForTagRemoval();
     Serial.println("Card removed!");
     Serial.println("Restarting...");
-    nfc.reset();
+    //nfc.reset();
+    ResetMode();
     Serial.print("Waiting for a Card");
   }
 

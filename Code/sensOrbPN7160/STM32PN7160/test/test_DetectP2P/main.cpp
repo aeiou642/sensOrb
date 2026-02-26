@@ -15,6 +15,12 @@
 #include "Electroniccats_PN7150.h"
 #include <Arduino.h>
 #include <Wire.h>
+#include <SoftwareSerial.h>
+#include "MS5837.h"
+#include "TCA9548A.h"
+#include <Adafruit_BNO08x.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 #define PN7150_IRQ (PA3)
 #define PN7150_VEN (PA4)
@@ -32,13 +38,12 @@ void ResetMode(){                                  //Reset the configuration mod
   nfc.StartDiscovery(mode);
 }
 
-
 void setup(){
   Wire.setSDA(PB7);
   Wire.setSCL(PB6);
   Wire.begin();
   
-  Serial.begin(9600);
+  Serial.begin(115200);
   while(!Serial);
   Serial.println("Detect P2P devices with PN7150/60");
 
@@ -73,7 +78,7 @@ void loop(){
       nfc.processP2pMode(RfInterface);
       Serial.println("Peer lost!");
     }
-    
+
     ResetMode();
   }
   delay(500);

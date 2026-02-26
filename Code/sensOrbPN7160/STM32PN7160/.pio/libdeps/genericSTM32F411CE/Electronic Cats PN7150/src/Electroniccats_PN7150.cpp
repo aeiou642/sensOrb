@@ -733,7 +733,7 @@ bool Electroniccats_PN7150::configureSettings(void) {
 #endif
 
 #if NXP_TVDD_CONF
-  if (NxpNci_CONF_size != 0) {
+  if (NxpNci_CONF_size == 0) {
     if (_chipModel == PN7150)
       (void)writeData(NxpNci_TVDD_CONF_2ndGen, sizeof(NxpNci_TVDD_CONF_2ndGen));
     else if (_chipModel == PN7160)
@@ -1855,7 +1855,7 @@ bool Electroniccats_PN7150::readerReActivate() {
   NCIActivate[4] = remoteDevice.getProtocol();
   NCIActivate[5] = remoteDevice.getInterface();
 
-  (void)writeData(NCIDeactivate, sizeof(NCIDeactivate));
+  (void)writeData(NCIActivate, sizeof(NCIActivate));
   getMessage();
   getMessage(100);
 

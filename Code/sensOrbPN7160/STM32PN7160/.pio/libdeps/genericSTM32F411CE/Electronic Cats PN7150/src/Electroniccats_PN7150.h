@@ -44,7 +44,7 @@
 #define NXP_CORE_STANDBY 1
 #define NXP_CORE_CONF_EXTN 1
 #define NXP_CLK_CONF 1  // 1=Xtal, 2=PLL
-#define NXP_TVDD_CONF 2 // 1=CFG1, 2=CFG2
+#define NXP_TVDD_CONF 1 // 1=CFG1, 2=CFG2
 #define NXP_RF_CONF 1
 
 #define NFC_FACTORY_TEST 1

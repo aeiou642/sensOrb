@@ -1,0 +1,203 @@
+(footprint "MS5837-30B"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(property "Reference" "U**"
+		(at 0 1.27 0)
+		(layer "F.SilkS")
+		(uuid "95c78c4b-d759-443c-8d54-3162fbad6594")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "MS5837-30BA"
+		(at 0 -0.5 0)
+		(layer "F.Fab")
+		(uuid "405f14a7-b1a7-490e-b053-2bd0218fdeaa")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" "UnderwaterComps:MS5837-30B"
+		(at 0.5 -2.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "858fee79-58e7-407e-a862-60853529c17a")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "29d5ac6a-f9b4-4493-a0d5-c404a5983fcd")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "46b75d88-587f-4cad-9401-2d0124016ef8")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_line
+		(start -1.4374 2.5504)
+		(end -1.4374 5.8504)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "d91d5606-1432-4dfe-a181-9b781defc176")
+	)
+	(fp_line
+		(start -1.4374 2.5504)
+		(end 1.8626 2.5504)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "c98b5981-608c-4f53-bb63-eb810c8b0990")
+	)
+	(fp_line
+		(start -1.4374 5.8504)
+		(end 1.8626 5.8504)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "d1185f1e-df59-4d4b-b2a3-0ec7a877253b")
+	)
+	(fp_line
+		(start 1.8626 2.5504)
+		(end 1.8626 5.8504)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "68c0264f-cb31-41c2-95e9-e6780fc1379d")
+	)
+	(fp_circle
+		(center 2.413 6.35)
+		(end 2.613 6.35)
+		(stroke
+			(width 0.4)
+			(type solid)
+		)
+		(fill none)
+		(layer "F.SilkS")
+		(uuid "419b431a-6dc5-494a-829c-f3716a4eb083")
+	)
+	(fp_line
+		(start -1.524 2.469)
+		(end -1.524 5.969)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "17b195ab-c9d9-4b5f-a0b4-a4c4a16693eb")
+	)
+	(fp_line
+		(start -1.524 2.469)
+		(end 1.926 2.469)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "5acc143a-dce2-4c4b-ba58-bf31932bfa87")
+	)
+	(fp_line
+		(start -1.524 5.969)
+		(end 1.926 5.969)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "bbcbf398-10fa-4500-bd5b-fcf98e14723e")
+	)
+	(fp_line
+		(start 1.926 2.469)
+		(end 1.926 5.969)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "a5c44c3f-a41e-4c93-a96a-560e6859200c")
+	)
+	(fp_text user "MS5837-30BA"
+		(at 0.127 4.191 0)
+		(layer "F.SilkS")
+		(uuid "900bde17-7136-4619-af00-f115deb8a601")
+		(effects
+			(font
+				(size 0.25 0.25)
+				(thickness 0.0625)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at 1.2126 5.2004)
+		(size 1.3 1.3)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "b2debe86-0281-4ad5-b0b7-22669651ff18")
+	)
+	(pad "2" smd rect
+		(at 1.2126 3.2004)
+		(size 1.3 1.3)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "b7faf71f-1927-4e2e-adf1-6b2baf06d8dd")
+	)
+	(pad "3" smd rect
+		(at -0.7874 3.2004)
+		(size 1.3 1.3)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "324fdaf4-2a36-4c39-9edc-5aa1e9929256")
+	)
+	(pad "4" smd rect
+		(at -0.7874 5.2004)
+		(size 1.3 1.3)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "2d2593bf-f7a3-4555-8610-07d3abcf189e")
+	)
+	(model "C:/Users/Aiden/Documents/KiCAD/Underwater Tactile Sensor/V1/MS5837-30BA .step"
+		(offset
+			(xyz 0.2 -4.2 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

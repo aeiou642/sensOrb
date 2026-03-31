@@ -7307,6 +7307,12 @@
 		(uuid "71ee7ee7-bb80-488e-bebb-d2ef894934da")
 	)
 	(junction
+		(at 29.21 97.79)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7a216e6e-dd74-4d69-afbb-83880ece9bd9")
+	)
+	(junction
 		(at 191.77 118.11)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -7443,12 +7449,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f5df8542-dea9-4d89-ab37-8ea993746ad8")
-	)
-	(junction
-		(at 29.21 97.79)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "fa8ec35f-b9fd-4de4-9e24-282e774c8682")
 	)
 	(junction
 		(at 161.29 31.75)
@@ -8211,6 +8211,16 @@
 			(type default)
 		)
 		(uuid "3dab5fbb-061a-4bee-8d05-d9800f06224f")
+	)
+	(wire
+		(pts
+			(xy 29.21 97.79) (xy 34.29 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3e6e646e-da45-4923-a5b7-46919e7d4f5e")
 	)
 	(polyline
 		(pts
@@ -9941,16 +9951,6 @@
 			(type default)
 		)
 		(uuid "d1ddc935-eaa3-49b9-ba32-6d7e49fc5dd9")
-	)
-	(wire
-		(pts
-			(xy 34.29 97.79) (xy 29.21 97.79)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d246e7b7-0eec-4092-abb3-16aa62f51f3b")
 	)
 	(wire
 		(pts
@@ -18484,7 +18484,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "+3.3V"
 			(at 279.654 121.158 90)
 			(effects
 				(font

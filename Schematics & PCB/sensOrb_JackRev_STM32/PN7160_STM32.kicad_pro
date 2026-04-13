@@ -346,14 +346,6 @@
           ""
         ],
         [
-          "silk_overlap|141144428|81622694|d4daaf9b-f878-43c7-bdc4-844575949536|68b469f6-7f52-4519-9ced-78125d24ce32",
-          ""
-        ],
-        [
-          "silk_overlap|143334904|80507188|d4daaf9b-f878-43c7-bdc4-844575949536|002956d1-558e-47b5-a883-193e8dbdf18b",
-          ""
-        ],
-        [
           "silk_overlap|161564328|102697938|1b6daa2f-fcf1-4ecd-837d-884defd756e9|58e6b57b-6e2f-440f-9109-bf2c16badb17",
           ""
         ],
@@ -1057,7 +1049,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "Output/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",

@@ -110,10 +110,10 @@
 			(layerselection 0x00000000_00000000_55555555_5755f5ff)
 			(plot_on_all_layers_selection 0x00000000_00000000_00000000_00000000)
 			(disableapertmacros no)
-			(usegerberextensions yes)
+			(usegerberextensions no)
 			(usegerberattributes yes)
 			(usegerberadvancedattributes yes)
-			(creategerberjobfile no)
+			(creategerberjobfile yes)
 			(dashed_line_dash_ratio 12.000000)
 			(dashed_line_gap_ratio 3.000000)
 			(svgprecision 4)
@@ -141,9 +141,9 @@
 			(subtractmaskfromsilk no)
 			(outputformat 1)
 			(mirror no)
-			(drillshape 0)
+			(drillshape 1)
 			(scaleselection 1)
-			(outputdirectory "Output/")
+			(outputdirectory "")
 		)
 	)
 	(net 0 "")
@@ -15796,7 +15796,7 @@
 		(property "Reference" "U3"
 			(at 1.48144 5.025826 180)
 			(layer "B.SilkS")
-			(uuid "6cee5871-e650-4c48-9816-3bca797ad147")
+			(uuid "ca6e7786-36d0-4999-a805-acd8240b6824")
 			(effects
 				(font
 					(size 1 1)
@@ -15808,7 +15808,7 @@
 		(property "Value" "STM32F411CEU6"
 			(at 8.28 -5.75 180)
 			(layer "B.Fab")
-			(uuid "9f61e7c0-a2f1-400f-a178-bc57f9db8949")
+			(uuid "3329ff8c-8d7d-49ad-a7fd-fcbc5e638c0a")
 			(effects
 				(font
 					(size 1 1)
@@ -15821,7 +15821,7 @@
 			(at 0 0 180)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "4e881ba2-ea51-4ab1-a471-059b7d348863")
+			(uuid "903bdda4-15fa-4f3a-9319-ae53eac7f039")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15834,7 +15834,7 @@
 			(at 0 0 180)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "8c524525-4f9f-4700-b1bf-ecf2c61e3111")
+			(uuid "504be2d6-ad63-48d4-8065-afbe8acfac2f")
 			(effects
 				(font
 					(size 1.27 1.27)

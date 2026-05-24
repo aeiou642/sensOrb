@@ -9,6 +9,7 @@
 
   This code handles:
   - NFC reader/writer and emulation modes of an integrated PN7160 
+  - NDEF Data block decoding/encoding operations
   - TCA9548A multiplexer channel selection for:
     - Reading pressure data of five MS5837 Barometers
   - Reading data of Adafruit BNO085 IMU-Sensor fusion

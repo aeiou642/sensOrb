@@ -1,3 +1,23 @@
+/*
+  NFC Sensor Node Signal Chaining Code [SENSORB]
+  Author: Jack Cunningham
+  Date: 5/23/26
+
+  This code operates several modules in tandem to produce
+  a NFC based relay of information from a head sensor node to
+  following reader nodes and back.
+
+  This code handles:
+  - NFC reader/writer and emulation modes of an integrated PN7160 
+  - TCA9548A multiplexer channel selection for:
+    - Reading pressure data of five MS5837 Barometers
+  - Reading data of Adafruit BNO085 IMU-Sensor fusion
+  - Relaying above sensor data across NFC nodes
+
+*/
+
+
+// Libraries necessary for operation
 #include <Arduino.h>
 #include <Wire.h>
 #include <SoftwareSerial.h>

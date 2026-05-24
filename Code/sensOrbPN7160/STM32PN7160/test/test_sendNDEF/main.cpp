@@ -1,5 +1,3 @@
-
-#include "Electroniccats_PN7150.h"
 #include <Arduino.h>
 #include <Wire.h>
 #include <SoftwareSerial.h>
@@ -8,38 +6,32 @@
 #include <Adafruit_BNO08x.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include "Electroniccats_PN7150.h"
 
 MS5837 sensor0;
 MS5837 sensor1;
 MS5837 sensor2;
 MS5837 sensor3;
 MS5837 sensor4;
-MS5837 sensor5;
-MS5837 sensor6;
-MS5837 sensor7;
+//MS5837 sensor5;
+//MS5837 sensor6;
+//MS5837 sensor7;
 
-MS5837 sensor_arr[8] = {sensor0, sensor1, sensor2, sensor3, sensor4, sensor5, sensor6, sensor7};
-int pressures[8] = {};
+MS5837 sensor_arr[5] = {sensor0, sensor1, sensor2, sensor3, sensor4};
+int pressures[5] = {};
 char io[1000];
 char acc_io[1000];
 
 TCA9548A I2CMux;
 
-// For SPI mode, we need a CS pin
-//#define BNO08X_CS 10
-//#define BNO08X_INT 9
-
-// For SPI mode, we also need a RESET
-//#define BNO08X_RESET 5
-// but not for I2C or UART
 #define BNO08X_RESET -1
 
 Adafruit_BNO08x bno08x(BNO08X_RESET);
 sh2_SensorValue_t sensorValue;
 void setReports(void);
 
-#define PN7160_IRQ (PA3)
-#define PN7160_VEN (PA4)
+#define PN7160_IRQ (PA4)
+#define PN7160_VEN (PA5)
 #define PN7160_ADDR (0x28)
 
 // Function prototypes
@@ -77,22 +69,18 @@ void setup() {
   Wire.setSCL(PB6);
   Wire.begin();
 
+  pinMode(PA13, OUTPUT);
+  pinMode(PB15, OUTPUT);
+
   I2CMux.begin(Wire);           
   I2CMux.closeAll();  
 
   Serial.begin(115200);
-  while (!Serial);
 
   Serial.println("Adafruit BNO08x test!");
-
   // Try to initialize!
   if (!bno08x.begin_I2C()) {
-    // if (!bno08x.begin_UART(&Serial1)) {  // Requires a device with > 300 byte
-    // UART buffer! if (!bno08x.begin_SPI(BNO08X_CS, BNO08X_INT)) {
     Serial.println("Failed to find BNO08x chip");
-    while (1) {
-      delay(10);
-    }
   }
   Serial.println("BNO08x Found!");
 
@@ -132,13 +120,13 @@ void setup() {
   //nfc.setReaderWriterMode();
   Serial.print("Waiting for an NDEF device");
 
-  for(int i = 0; i < 8; i++){
+  for(int i = 0; i < 5; i++){
     I2CMux.openChannel(i);
 
     // Initialize pressure sensor
     // Returns true if initialization was successful
     // We can't continue with the rest of the program unless we can initialize the sensor
-    while (!sensor_arr[i].init()) {
+    if (!sensor_arr[i].init()) {
       Serial.println("Init failed!");
       Serial.println("Are SDA/SCL connected correctly?");
       Serial.println("\n\n\n");
@@ -156,9 +144,8 @@ void setup() {
 }
 
 void loop() {
-  Serial.print(".");
 
-  for(int i = 0; i < 8; i++){
+  for(int i = 0; i < 5; i++){
     I2CMux.openChannel(i);
     sensor_arr[i].read();
 
@@ -175,7 +162,7 @@ void loop() {
     return;
   }
 
-  int pressure_size = snprintf(io, sizeof(io), "Pressures: %d %d %d %d %d %d %d %d", pressures[0], pressures[1], pressures[2], pressures[3], pressures[4], pressures[5], pressures[6], pressures[7]);
+  int pressure_size = snprintf(io, sizeof(io), "Pressures: %d %d %d %d %d", pressures[0], pressures[1], pressures[2], pressures[3], pressures[4]);
   Serial.println(io);
 
   char accel_x[5];
@@ -223,7 +210,7 @@ void loop() {
                             acc_io[70], acc_io[71], acc_io[72], acc_io[73], acc_io[74], acc_io[75], acc_io[76],                                                             // Message Payload
                             0x51,                                                                                       // MB/ME/CF/1/IL/TNF
                             0x01,                                                                                       // Type length (1 byte)
-                            0x36,                                                                                       // Payload length
+                            0x27,                                                                                       // Payload length
                             'T',                                                                                        // Type -> 'T' for text, 'U' for URI
                             0x02,                                                                                       // Status
                             'e', 'n',
@@ -232,17 +219,11 @@ void loop() {
                             io[16], io[17], io[18], io[19], io[20],
                             io[21], io[22], io[23], io[24], io[25],
                             io[26], io[27], io[28], io[29], io[30],
-                            io[31], io[32], io[33], io[34], io[35],
-                            io[36], io[37], io[38], io[39], io[40],
-                            io[41], io[42], io[43], io[44], io[45],
-                            io[46], io[47], io[48], io[49], io[50]};                                                                                    
-    
-    /*const char newdefMessage[] =        {0xD1,
-      0x01, 0x15, 0x55, 0x00, io[0], io[1], io[2], io[3], io[4],
-      io[5], io[6], io[7], io[8], io[9], io[10], io[11], io[12], io[13], io[14],
-      io[15], io[16], io[17], io[19], io[20]};        */
+                            io[31], io[32], io[33], io[34]};                                                                                    
+
     message.setContent((newdefMessage), sizeof(newdefMessage));
     nfc.sendMessage();
+    messageSentCallback();
     Serial.print("\nWaiting for an NDEF device");
   }
 }
@@ -250,6 +231,9 @@ void loop() {
 void messageSentCallback() {
   Serial.println("NDEF message sent!");
   // Do something...
+  digitalWrite(PB15, HIGH);
+  delay(2000);
+  digitalWrite(PB15, LOW);
 }
 
 void setReports(void) {

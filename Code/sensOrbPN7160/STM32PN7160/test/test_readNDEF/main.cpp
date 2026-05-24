@@ -9,8 +9,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define PN7160_IRQ (PA3)
-#define PN7160_VEN (PA4)
+#define PN7160_IRQ (PA4)
+#define PN7160_VEN (PA5)
 #define PN7160_ADDR (0x28)
 
 // Function prototypes
@@ -29,9 +29,11 @@ void setup() {
   Wire.setSCL(PB6);
   Wire.begin();
   
+  pinMode(PA13, OUTPUT);
+  pinMode(PB15, OUTPUT);
+
   Serial.begin(115200);
-  while (!Serial)
-    ;
+  //while (!Serial);
   Serial.println("Detect NFC tags with PN7150/60");
 
   // Register a callback function to be called when an NDEF message is received
@@ -61,7 +63,7 @@ void setup() {
   nfc.StartDiscovery(mode); //NCI Discovery mode
 
   message.begin();
-  //nfc.setReaderWriterMode();
+  nfc.setReaderWriterMode();
   //nfc.setEmulationMode();
   Serial.print("Waiting for a Card...");
 }
@@ -69,6 +71,7 @@ void setup() {
 void ResetMode(){                                  //Reset the configuration mode after each reading
   Serial.println("Re-initializing...");
   nfc.ConfigMode(mode);
+  nfc.setReaderWriterMode();
   nfc.StartDiscovery(mode);
 }
 
@@ -105,6 +108,9 @@ void loop() {
       Serial.println("Multiple cards are detected!");
     }
     Serial.println("Remove the Card");
+    digitalWrite(PA13, HIGH);
+    delay(2000);
+    digitalWrite(PA13, LOW);
     nfc.waitForTagRemoval();
     Serial.println("Card removed!");
     Serial.println("Restarting...");
@@ -119,6 +125,7 @@ void loop() {
 
 /// @brief Callback function called when an NDEF message is received
 void messageReceivedCallback() {
+
   NdefRecord record;
   Serial.println("Processing Callback...");
 

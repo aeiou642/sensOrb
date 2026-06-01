@@ -222,20 +222,10 @@ void setupReaderMode() {
 
   mode = 1;
 
-  if (nfc.connectNCI()) { // Wake up board
-    Serial.println("Error while setting up the mode, check connections!");
-    while (1);
-  }
-
-  if (nfc.configureSettings()) {
-    Serial.println("The Configure Settings failed!");
-    while (1);
-  }
-
-  if(nfc.ConfigMode(mode)){ 
-    Serial.println("The Configure Mode failed!!");
-    while (1);
-  }
+  nfc.connectNCI();
+  nfc.configureSettings();
+  
+  nfc.ConfigMode(mode);
   nfc.StartDiscovery(mode);
 
   message.begin();
@@ -286,8 +276,23 @@ void updateLocalSensorData() {
   if (bno08x.wasReset()) {
     setReports();
   }
+  if (!bno08x.getSensorEvent(&sensorValue)) {
+    return;
+  }
 
-  bno08x.getSensorEvent(&sensorValue);
+  float ax, ay, az, gx, gy, gz;
+
+  if (sensorValue.sensorId == SH2_ACCELEROMETER) {
+    ax = sensorValue.un.accelerometer.x;
+    ay = sensorValue.un.accelerometer.y;
+    az = sensorValue.un.accelerometer.z;
+  }
+
+  if (sensorValue.sensorId == SH2_GYROSCOPE_CALIBRATED) {
+    gx = sensorValue.un.gyroscope.x;
+    gy = sensorValue.un.gyroscope.y;
+    gz = sensorValue.un.gyroscope.z;
+  }
 
   // Create LOCAL node data
   snprintf(
@@ -300,12 +305,12 @@ void updateLocalSensorData() {
     pressures[2],
     pressures[3],
     pressures[4],
-    sensorValue.un.accelerometer.x,
-    sensorValue.un.accelerometer.y,
-    sensorValue.un.accelerometer.z,
-    sensorValue.un.gyroscope.x,
-    sensorValue.un.gyroscope.y,
-    sensorValue.un.gyroscope.z
+    ax,
+    ay,
+    az,
+    gx,
+    gy,
+    gz
   );
 
   Serial.println(localData);

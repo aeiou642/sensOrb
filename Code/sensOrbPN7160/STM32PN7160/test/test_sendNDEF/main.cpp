@@ -175,7 +175,7 @@ void loop() {
   char gyro_x[5];
   char gyro_y[5];
   char gyro_z[5];
-  dtostrf(sensorValue.un.gyroscope.z, 4, 2, gyro_x);
+  dtostrf(sensorValue.un.gyroscope.x, 4, 2, gyro_x);
   dtostrf(sensorValue.un.gyroscope.y, 4, 2, gyro_y);
   dtostrf(sensorValue.un.gyroscope.z, 4, 2, gyro_z);
 

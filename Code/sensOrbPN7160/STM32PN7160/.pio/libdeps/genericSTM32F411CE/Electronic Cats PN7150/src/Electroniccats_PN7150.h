@@ -54,7 +54,7 @@
 #define TIMEOUT_2S 2000
 #define SUCCESS NFC_SUCCESS
 #define ERROR NFC_ERROR
-#define MAX_NCI_FRAME_SIZE 258
+#define MAX_NCI_FRAME_SIZE 2048
 
 /*
  * Flag definition used for NFC library configuration

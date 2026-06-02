@@ -50,6 +50,7 @@ MS5837 sensor_arr[5] = {
 int pressures[5] = {};  // Pressure data from barometers
 
 char chainBuffer[1024];     // Chained message to send out
+char ndefBuffer[1024];
 char localData[256];        // This node's local sensor data
 
 TCA9548A I2CMux;
@@ -117,13 +118,14 @@ void setup() {
     
       I2CMux.closeChannel(i);
     }
+    Serial.print("Setup of IO complete.");
   }
 
   // NFC configuration
   Serial.println("Initializing PN7150/PN7160...");
  
-  nfc.setReadMsgCallback(messageReceivedCallback);
-  nfc.setSendMsgCallback(messageSentCallback);
+  //nfc.setReadMsgCallback(messageReceivedCallback);
+  //nfc.setSendMsgCallback(messageSentCallback);
 
   // Start in read/write dependent on if I/O is present(determines if this is a sensor node)
   if(valid_io){
@@ -131,6 +133,7 @@ void setup() {
   }else{
     setupReaderMode();
   }
+  message.begin();
 
   Serial.println("System Ready");
 }
@@ -148,6 +151,8 @@ void loop() {
 
       if(valid_io){
         updateLocalSensorData();
+        delay(1);
+        Serial.println("Updated local data.");
         appendLocalDataToChain();
       }
       sendChainNDEF();
@@ -181,15 +186,23 @@ void loop() {
       switch (nfc.remoteDevice.getProtocol()) {
 
         case nfc.protocol.T1T:
-        case nfc.protocol.T2T:
-        case nfc.protocol.T3T:
-        case nfc.protocol.ISODEP:
-        case nfc.protocol.MIFARE:
-        case nfc.protocol.ISO15693:
-
           nfc.readNdefMessage();
           break;
-
+        case nfc.protocol.T2T:
+          nfc.readNdefMessage();
+          break;
+        case nfc.protocol.T3T:
+          nfc.readNdefMessage();
+          break;
+        case nfc.protocol.ISODEP:
+          nfc.readNdefMessage();
+          break;
+        case nfc.protocol.MIFARE:
+          nfc.readNdefMessage();
+          break;
+        case nfc.protocol.ISO15693:
+          nfc.readNdefMessage();
+          break;
         default:
           break;
       }
@@ -197,6 +210,8 @@ void loop() {
       nfc.waitForTagRemoval();
 
       Serial.println("Card removed");
+
+      messageReceivedCallback();
 
       digitalWrite(PB15, HIGH);
       delay(100);
@@ -228,7 +243,6 @@ void setupReaderMode() {
   nfc.ConfigMode(mode);
   nfc.StartDiscovery(mode);
 
-  message.begin();
   nfc.setReaderWriterMode();
 
   digitalWrite(PB15, LOW);
@@ -248,7 +262,6 @@ void setupWriterMode() {
   nfc.ConfigMode(mode);
   nfc.StartDiscovery(mode);
 
-  message.begin();
   nfc.setEmulationMode(); 
 
   digitalWrite(PB15, HIGH);
@@ -259,7 +272,7 @@ void setupWriterMode() {
 
 // Store new instance of data from barometers and IMU
 void updateLocalSensorData() {
-
+  Serial.print("Updating node sensor data.... ");
   // Read pressure sensors
   for (int i = 0; i < 5; i++) {
 
@@ -276,41 +289,40 @@ void updateLocalSensorData() {
   if (bno08x.wasReset()) {
     setReports();
   }
-  if (!bno08x.getSensorEvent(&sensorValue)) {
-    return;
+  while (!bno08x.getSensorEvent(&sensorValue)) {
   }
+  
+  char accel_x[8];
+  char accel_y[8];
+  char accel_z[8];
+  dtostrf(sensorValue.un.accelerometer.x, 4, 2, accel_x);
+  dtostrf(sensorValue.un.accelerometer.y, 4, 2, accel_y);
+  dtostrf(sensorValue.un.accelerometer.z, 4, 2, accel_z);
 
-  float ax, ay, az, gx, gy, gz;
-
-  if (sensorValue.sensorId == SH2_ACCELEROMETER) {
-    ax = sensorValue.un.accelerometer.x;
-    ay = sensorValue.un.accelerometer.y;
-    az = sensorValue.un.accelerometer.z;
-  }
-
-  if (sensorValue.sensorId == SH2_GYROSCOPE_CALIBRATED) {
-    gx = sensorValue.un.gyroscope.x;
-    gy = sensorValue.un.gyroscope.y;
-    gz = sensorValue.un.gyroscope.z;
-  }
+  char gyro_x[8];
+  char gyro_y[8];
+  char gyro_z[8];
+  dtostrf(sensorValue.un.gyroscope.x, 4, 2, gyro_x);
+  dtostrf(sensorValue.un.gyroscope.y, 4, 2, gyro_y);
+  dtostrf(sensorValue.un.gyroscope.z, 4, 2, gyro_z);
 
   // Create LOCAL node data
-  snprintf(
+  int len = snprintf(
     localData,
     sizeof(localData),
-    "NODE[%lu] P:%d,%d,%d,%d,%d AX:%.2f AY:%.2f AZ:%.2f GX:%.2f GY:%.2f GZ:%.2f",
+    "NODE[%lu]-P:%d,%d,%d,%d,%d;AX:%s,AY:%s,AZ:%s,GX:%s,GY:%s,GZ:%s",
     millis(),
     pressures[0],
     pressures[1],
     pressures[2],
     pressures[3],
     pressures[4],
-    ax,
-    ay,
-    az,
-    gx,
-    gy,
-    gz
+    accel_x,
+    accel_y,
+    accel_z,
+    gyro_x,
+    gyro_y,
+    gyro_z
   );
 
   Serial.println(localData);
@@ -353,32 +365,41 @@ void appendLocalDataToChain() {
 // Convert data chain to NFC Data Exchange Format(NDEF)
 void sendChainNDEF() {
 
-  char ndef[1024];
+  //char ndef[1024];
 
   int payloadLen = strlen(chainBuffer);
+  Serial.print("Payload length = ");
+  Serial.println(payloadLen);
 
   int index = 0;
 
   // NDEF TEXT RECORD HEADER
-  ndef[index++] = 0xD1; // MB/ME/SR/TNF - NDEF format header
-  ndef[index++] = 0x01; // Type length
-  ndef[index++] = payloadLen + 3; // Payload length
+  ndefBuffer[index++] = 0xD1; // MB/ME/SR/TNF - NDEF format header
+  ndefBuffer[index++] = 0x01; // Type length
+  ndefBuffer[index++] = payloadLen + 3; // Payload length
 
-  ndef[index++] = 'T';
+  ndefBuffer[index++] = 'T';
 
   // Language code
-  ndef[index++] = 0x02; // Length of language code
-  ndef[index++] = 'e';
-  ndef[index++] = 'n';
+  ndefBuffer[index++] = 0x02; // Length of language code
+  ndefBuffer[index++] = 'e';
+  ndefBuffer[index++] = 'n';
 
   // Copy payload
-  memcpy(&ndef[index], chainBuffer, payloadLen);
+  memcpy(&ndefBuffer[index], chainBuffer, payloadLen);
   index += payloadLen;
   
-  message.setContent(ndef, index);
+  message.setContent(ndefBuffer, index);
 
-  Serial.println("\nBroadcasting chain:");
-  Serial.println(chainBuffer);
+  Serial.println(message.getContentLength());
+
+  uint8_t* p = message.getContent();
+
+  for(int i=0;i<message.getContentLength();i++)
+  {
+    Serial.printf("%02X ", p[i]);
+  }
+  Serial.println();
 
   nfc.sendMessage();
 }
@@ -400,38 +421,25 @@ void messageReceivedCallback() {
     return;
   }
 
-  do {
+  uint8_t* buf = message.getContent();
+  size_t len = message.getContentLength();
 
-    record.create(message.getRecord());
+  for(size_t i=0;i<len;i++) {
+    Serial.printf("%02X ", buf[i]);
+  }
+  Serial.println();
 
-    if (record.getType() == record.type.WELL_KNOWN_SIMPLE_TEXT) {
+  record.create(message.getRecord());
 
-      String incoming = record.getText();
+  if(record.getType() == record.type.WELL_KNOWN_SIMPLE_TEXT)
+  {
+    String incoming = record.getText();
 
-      Serial.println("\nRECEIVED CHAIN:");
-      Serial.println(incoming);
+    Serial.println(incoming);
 
-      // Overwrite the existing chain buffer with the new incoming one
-
-      memset(chainBuffer, 0, sizeof(chainBuffer));
-
-      incoming.toCharArray(
-        chainBuffer,
-        sizeof(chainBuffer)
-      );
-
-      // If this is a sensor node, append the local data to the chain
-
-      if(valid_io){
-        updateLocalSensorData();
-        appendLocalDataToChain();
-      }
-
-      Serial.println("\nCHAIN AFTER APPEND:");
-      Serial.println(chainBuffer);
-    }
-
-  } while (record.isNotEmpty());
+    memset(chainBuffer, 0, sizeof(chainBuffer));
+    incoming.toCharArray(chainBuffer, sizeof(chainBuffer));
+  }
 }
 
 // NDEF helper function
